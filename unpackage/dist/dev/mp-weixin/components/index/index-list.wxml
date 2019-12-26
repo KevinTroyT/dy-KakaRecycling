@@ -1,0 +1,1 @@
+<view class="index-list"><view class="listItem"><view class="item-img"><image src="{{item.path}}" mode></image></view><view class="item-right"><view class="name">{{item.name}}</view><view class="faceValue">{{item.faceValue}}</view></view><view class="right-box"><image class="right-arrows" src="../../static/images/right.png" mode></image></view></view></view>

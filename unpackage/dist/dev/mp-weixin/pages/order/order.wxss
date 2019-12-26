@@ -1,0 +1,121 @@
+
+page{
+	background-color: #e6e6e6;
+}
+.top{
+	width: 100%;
+	height: 100rpx;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.top>view{
+	display: inline-block;
+	width: 25%;
+	padding: 0 5%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	line-height: 100rpx;
+	font-size: 34rpx;
+}
+.top>.active{
+	color: #F18F02;
+}
+.content{
+	margin-top: 120rpx;
+	width: 100%;
+}
+/* 订单卡片样式 */
+.item{
+	width: 100%;
+	height: 340rpx;
+	background-color: #fff;
+	padding: 0 20rpx;
+	margin-bottom: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.item .item-top{
+	width: 100%;
+	height: 80rpx;
+	line-height: 80rpx;
+	border-bottom: 1px solid #ccc;
+}
+.item .item-top .left{
+	float: left;
+	display: inline-block;
+	padding-left: 10rpx;
+}
+.item .item-top .left .name{
+	display: inline-block;
+	line-height: 80rpx;
+	font-size: 34rpx;
+	margin-right: 10rpx;
+	color: #333;
+}
+.item .item-top .left .num{
+	display: inline-block;
+	line-height: 80rpx;
+	font-size: 34rpx;
+	color: #999;
+}
+.item .item-top .right{
+	float: right;
+	line-height: 80rpx;
+	color: #F18F02;
+	font-size: 34rpx;
+	padding-right: 20rpx;
+	display: inline-block;
+}
+.item .item-content{
+	width: 100%;
+	height: 200rpx;
+	padding-bottom: 20rpx;
+	border-bottom: 1px solid #ccc;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.item .item-content .img{
+	width: 100rpx;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	margin-right: 20rpx;
+}
+.item .item-content .img image{
+	width: 100rpx;
+	height: 100rpx;
+	margin-top: 50rpx;
+}
+.item .item-content .cardNum{
+	display: inline-block;
+	float: left;
+	width: 80%;
+}
+.item .item-content .cardNum .i{
+	line-height: 55rpx;
+}
+.item .item-content .cardNum .i:nth-child(1){
+	margin-top: 10rpx;
+}
+.item .item-content .cardNum .i .name{
+	display: inline-block;
+	margin-right: 10rpx;
+}
+.item .item-content .cardNum .i .con{
+	display: inline-block;
+	color: #999;
+}
+.item .item-content .cardNum .i .state{
+	display: inline-block;
+	float: right;
+	font-size: 30rpx;
+	color: #999;
+}
+.item .item-bottom{
+	text-align: right;
+	color: #999;
+	padding-right: 10rpx;
+}
+
