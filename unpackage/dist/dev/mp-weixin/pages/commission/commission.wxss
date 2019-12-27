@@ -1,0 +1,115 @@
+
+page{
+	background-color: #f2f2f2;
+}
+.top{
+	position: relative;
+	width: 100%;
+	height: 450rpx;
+}
+.top .top1{
+	width: 100%;
+	height: 270rpx;
+	background-image: -webkit-gradient(linear, left top, right top, from(#efa83b) , to(#e79038));
+	background-image: -o-linear-gradient(left, #efa83b , #e79038);
+	background-image: linear-gradient(to right, #efa83b , #e79038);
+}
+.top .top2{
+	width: 100%;
+	height: 80rpx;
+	background-image: #fff;
+}
+.card{
+	position: absolute;
+	left: 10%;
+	top: 90rpx;
+	width: 80%;
+	background-color: #fff;
+	border-radius: 15rpx;
+	padding-top: 10rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	height: 250rpx;
+}
+.card .title{
+	width: 100%;
+	text-align: center;
+	font-size: 32rpx;
+}
+.card .number{
+	width: 100%;
+	font-size: 54rpx;
+	color: #d5352f;
+	text-align: center;
+}
+.card .card-bottom{
+	width: 100%;
+	height: 80rpx;
+}
+.card .card-bottom view{
+	display: inline-block;
+}
+.card .card-bottom>view{
+	width: 50%;
+	text-align: center;
+}
+.card .card-bottom .left{
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-right: 1px solid #dcdcdc;
+}
+.card .card-bottom .name{
+	font-size: 32rpx;
+	margin-right: 10rpx;
+}
+.card .card-bottom .num{
+	font-size: 32rpx;
+	color: #d5352f;
+}
+.record{
+	width: 100%;
+}
+.record .title{
+	width: 100%;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 36rpx;
+	text-align: center;
+}
+.record .item{
+	width: 100%;
+	height: 140rpx;
+	padding: 20rpx 30rpx;
+	margin-top: 10rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.record .item .img{
+	width: 80rpx;
+	height: 80rpx;
+	margin-top: 10rpx;
+	margin-right: 20rpx;
+	float: left;
+}
+.record .item .img image{
+	width: 100%;
+	height: 100%;
+}
+.record .item .middle{
+	float: left;
+}
+.record .item .middle .con{
+	font-size: 34rpx;
+	color: #333;
+}
+.record .item .middle .time{
+	font-size: 30rpx;
+	color: #a3a3a3;
+}
+.record .item .right{
+	float: right;
+	line-height: 100rpx;
+	font-size: 34rpx;
+	color: #d5352f;
+}
+

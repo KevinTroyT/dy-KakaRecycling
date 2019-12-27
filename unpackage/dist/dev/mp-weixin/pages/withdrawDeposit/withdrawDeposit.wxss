@@ -1,0 +1,57 @@
+
+page{
+	background-color: #f2f2f2;
+	padding: 0 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.card{
+	width: 100%;
+	height: 400rpx;
+	border-radius: 20rpx;
+	padding: 20rpx 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-box-shadow: 0 0 10rpx #ccc;
+	        box-shadow: 0 0 10rpx #ccc;
+	background-color: #fff;
+}
+.card .title{
+	font-size: 34rpx;
+	color: #7d838c;
+}
+.card .money{
+	font-size: 75rpx;
+	margin-top: 20rpx;
+	border-bottom: 1px solid #f2f2f2;
+	color: #000;
+}
+.card .bottom{
+	width: 100%;
+	height: 80rpx;
+	margin-top: 40rpx;
+}
+.card .bottom .left{
+	font-size: 32rpx;
+	float: left;
+	color: #7d838c;
+	margin-right: 20rpx;
+	line-height: 80rpx;
+	display: inline-block;
+}
+.card .bottom .num{
+	font-size: 32rpx;
+	float: left;
+	color: #7d838c;
+	line-height: 80rpx;
+	display: inline-block;
+}
+.commit{
+	width: 100%;
+	height: 100rpx;
+	border-radius: 50rpx;
+	background-color: #e89439;
+	color: #fff;
+	margin-top: 500rpx;
+}
+

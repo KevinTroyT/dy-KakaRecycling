@@ -1,0 +1,32 @@
+
+.feedback{
+	width: 100%;
+	padding: 0 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.contact-way{
+	width: 100%;
+	height: 100rpx;
+	margin-top: 30rpx;
+	line-height: 100rpx;
+	font-size: 34rpx;
+}
+.title{
+	font-size: 30rpx;
+	margin-top: 20rpx;
+}
+.question{
+	width: 100%;
+	margin-top: 40rpx;
+	font-size: 30rpx;
+}
+.commit{
+	width: 100%;
+	height: 100rpx;
+	border-radius: 50rpx;
+	background-color: #e89439;
+	color: #fff;
+	margin-top: 80rpx;
+}
+

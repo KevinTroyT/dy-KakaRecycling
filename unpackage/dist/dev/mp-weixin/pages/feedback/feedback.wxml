@@ -1,0 +1,1 @@
+<view class="feedback"><input class="contact-way" type="text" placeholder="请输入您的联系方式" data-event-opts="{{[['input',[['__set_model',['','phone','$event',[]]]]]]}}" value="{{phone}}" bindinput="__e"/><view class="title">问题与意见</view><textarea class="question" placeholder="请填写10个字以上的问题描述以便我们提供更好的帮助"></textarea><button class="commit">立即提交</button></view>

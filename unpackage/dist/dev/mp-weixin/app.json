@@ -1,9 +1,15 @@
 {
   "pages": [
+    "pages/commission/commission",
     "pages/index/index",
     "pages/classification/classification",
     "pages/order/order",
+    "pages/record/record",
+    "pages/feedback/feedback",
+    "pages/withdrawDeposit/withdrawDeposit",
+    "pages/userInfo/userInfo",
     "pages/information/information",
+    "pages/account/account",
     "pages/my/my"
   ],
   "subPackages": [],
