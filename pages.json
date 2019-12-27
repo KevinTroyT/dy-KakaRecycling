@@ -1,11 +1,6 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-		    "path" : "pages/commission/commission",
-		    "style": {
-		    	"navigationBarTitleText": "我的分销"
-		    }
-		},
+		
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -19,15 +14,33 @@
 			}
 		},
 		{
+			"path": "pages/sellCard/sellCard",
+			"style": {
+				"navigationBarTitleText": "卡券转让"
+			}
+		},
+		{
 			"path": "pages/order/order",
 			"style": {
 				"navigationBarTitleText": "我的订单"
 			}
 		},
 		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
 		    "path" : "pages/record/record",
 		    "style": {
 		    	"navigationBarTitleText": "提现记录"
+		    }
+		},
+		{
+		    "path" : "pages/commission/commission",
+		    "style": {
+		    	"navigationBarTitleText": "我的分销"
 		    }
 		},
 		{
@@ -59,14 +72,7 @@
 		    "style": {
 		    	"navigationBarTitleText": "打款账户"
 		    }
-		},
-		{
-			"path": "pages/my/my",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
 		}
-	    
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

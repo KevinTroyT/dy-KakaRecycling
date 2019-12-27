@@ -1,16 +1,17 @@
 {
   "pages": [
-    "pages/commission/commission",
     "pages/index/index",
     "pages/classification/classification",
+    "pages/sellCard/sellCard",
     "pages/order/order",
+    "pages/my/my",
     "pages/record/record",
+    "pages/commission/commission",
     "pages/feedback/feedback",
     "pages/withdrawDeposit/withdrawDeposit",
     "pages/userInfo/userInfo",
     "pages/information/information",
-    "pages/account/account",
-    "pages/my/my"
+    "pages/account/account"
   ],
   "subPackages": [],
   "window": {
