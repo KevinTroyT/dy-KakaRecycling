@@ -13,6 +13,9 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));function 
 
 _vue.default.config.productionTip = false;
 
+// Vue.prototype.url = 'http://192.168.0.105:8081'
+_vue.default.prototype.url = 'http://49.232.168.35:8081';
+
 _App.default.mpType = 'app';
 
 var app = new _vue.default(_objectSpread({},

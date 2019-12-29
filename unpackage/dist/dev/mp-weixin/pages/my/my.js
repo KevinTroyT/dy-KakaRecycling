@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -196,11 +196,71 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      token: '' //onShow时获取token存起来，以便每次发送请求都要重新获取
+    };
+  },
+  onShow: function onShow() {
+    this.token = uni.getStorageSync('token');
+    console.log(this.token);
+    if (!this.token) {
+      uni.navigateTo({
+        url: '../login/login' });
 
+      return;
+    }
+    uni.request({
+      url: this.url + '/mobile/realData',
+      method: 'GET',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'token': this.token },
+
+      data: {},
+
+
+      success: function success(res) {
+        console.log(res);
+      } });
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    goInvite: function goInvite() {
+      uni.navigateTo({
+        url: '../invite/invite' });
+
+    },
+    goUserInfo: function goUserInfo() {//跳转个人信息页面
+      uni.navigateTo({
+        url: '../userInfo/userInfo' });
+
+    },
+    goAccount: function goAccount() {//跳转打款账户页面
+      uni.navigateTo({
+        url: '../account/account' });
+
+    },
+    goCommission: function goCommission() {//跳转佣金记录页面
+      uni.navigateTo({
+        url: '../commission/commission' });
+
+    },
+    goFeedback: function goFeedback() {//跳转意见反馈页面
+      uni.navigateTo({
+        url: '../feedback/feedback' });
+
+    },
+    goRecord: function goRecord() {//跳转提现记录页面
+      uni.navigateTo({
+        url: '../record/record' });
+
+    },
+    goWithdrawDeposit: function goWithdrawDeposit() {//跳转体现页面
+      uni.navigateTo({
+        url: '../withdrawDeposit/withdrawDeposit' });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

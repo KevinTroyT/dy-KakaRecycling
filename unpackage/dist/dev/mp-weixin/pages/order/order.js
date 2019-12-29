@@ -122,121 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -292,15 +178,65 @@ var _default =
 {
   data: function data() {
     return {
-      item: ['处理中', '已成功', '失败', '全部'],
-      current: 0 };
+      item: ['全部', '已成功', '失败', '处理中'],
+      current: 0,
+      src: '',
+      token: '', //onShow时获取token存起来，以便每次发送请求都要重新获取
+      orderList: [] };
+
+  },
+  onShow: function onShow() {var _this = this;
+    this.token = uni.getStorageSync('token');
+    console.log(this.token);
+    if (!this.token) {
+      uni.navigateTo({
+        url: '../login/login' });
+
+      return;
+    }
+    this.src = this.url;
+    uni.request({
+      url: this.url + '/mobile/getOrderCardFlowList',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'token': this.token },
+
+      data: {
+        type: 2 },
+
+      success: function success(res) {
+        console.log(res);
+        _this.orderList = res.data.data;
+      } });
 
   },
   methods: {
-    change: function change(index) {
+    change: function change(index) {var _this2 = this;
       this.current = index;
+      var cardState = '';
       console.log(index);
+      if (index != 0) {
+        cardState = index - 1;
+      }
+      uni.request({
+        url: this.url + '/mobile/getOrderCardFlowList',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'token': this.token },
+
+        data: {
+          type: 2,
+          cardState: cardState },
+
+        success: function success(res) {
+          console.log(res);
+          _this2.orderList = res.data.data;
+        } });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

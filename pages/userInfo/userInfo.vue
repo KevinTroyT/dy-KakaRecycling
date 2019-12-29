@@ -15,7 +15,7 @@
 			<view class="title">修改密码</view>
 			<image src="../../static/images/right_1.png" class="right-icon" mode=""></image>
 		</view>
-		<view class="username">
+		<view class="username" @click="out">
 			<view class="title">退出登录</view>
 			<image src="../../static/images/right_1.png" class="right-icon" mode=""></image>
 		</view>
@@ -30,7 +30,12 @@
 			}
 		},
 		methods: {
-			
+			out(){
+				uni.clearStorageSync()
+				uni.navigateTo({
+					url: '../login/login'
+				});
+			}
 		}
 	}
 </script>

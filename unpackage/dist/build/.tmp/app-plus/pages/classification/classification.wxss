@@ -1,0 +1,11 @@
+
+.uni-tab-bar .swiper-tab-list{
+	width: 130rpx;
+	border-radius: 40rpx;
+	margin: 0 10rpx;
+}
+.active{
+	color: #fff !important;
+	background-color: #F18F02;
+}
+

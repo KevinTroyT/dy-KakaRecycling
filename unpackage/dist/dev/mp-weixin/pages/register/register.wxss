@@ -1,0 +1,79 @@
+
+.aaa{
+	/* margin-top: 15%; */
+}
+.aaa .img{
+	width: 100%;
+	text-align: center;
+}
+.aaa .img image{
+	width: 200rpx;
+	height: 200rpx;
+}
+.zhuce{
+	width: 100%;
+	padding: 0 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.zhuce_ouput{
+	width: 100%;
+	font-size: 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 100rpx;
+	line-height: 100rpx;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	position: relative;
+	border: 1px solid #ccc;
+	border-radius: 100rpx;
+	padding-left: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin-bottom: 30rpx;
+}
+.zhuce_ouput>view{
+    display: inline-block;
+    text-align: right;
+    color: rgb(33,33,33);
+    width: 20%;
+	float: left;
+}
+.zhuce_ouput>input{
+    width: 360rpx;
+}
+#getyzm{
+	font-size: 30rpx;
+	width: 200rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	text-align: center;
+	color: #1d81cf;
+	border-radius: 10rpx;
+}
+.registerBtn{
+	background-color: #1d81cf;
+	color: white;
+	width: 90%;
+	font-size: 36rpx;
+	height: 85rpx;
+	line-height: 85rpx;
+	border-radius: 20rpx;
+	margin-top: 50rpx;
+	text-align: center;
+}
+.text{
+	text-align: center;
+	margin-top: 70rpx;
+	font-size: 32rpx;
+}
+.login{
+	text-align: center;
+	margin-top: 60rpx;
+}
+

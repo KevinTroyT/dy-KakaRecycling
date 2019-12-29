@@ -122,25 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -181,11 +163,38 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      token: '', //onShow时获取token存起来，以便每次发送请求都要重新获取
+      todaymoney: '',
+      summoney: '',
+      yesterdaymoney: '',
+      list: [] };
 
+  },
+  onShow: function onShow() {var _this = this;
+    this.token = uni.getStorageSync('token');
+    console.log('token', this.token);
+    uni.request({
+      url: this.url + '/mobile/getRebateLog',
+      method: 'GET',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'token': this.token },
+
+      data: {},
+
+
+      success: function success(res) {
+        console.log(res);
+        _this.todaymoney = res.data.data.money.todaymoney.toFixed(2);
+        _this.summoney = res.data.data.money.summoney.toFixed(2);
+        _this.yesterdaymoney = res.data.data.money.yesterdaymoney.toFixed(2);
+        _this.list = res.data.data.list;
+      } });
 
   },
   methods: {} };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

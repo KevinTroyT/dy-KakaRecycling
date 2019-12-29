@@ -1,0 +1,60 @@
+
+.title{
+	font-size: 40rpx;
+	color: #e89439;
+	text-align: left;
+	font-weight: 550;
+	line-height: 100rpx;
+	padding-left: 20rpx;
+}
+.name{
+	width: 100%;
+	height: 100rpx;
+	margin-top: 80rpx;
+	padding: 0 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.name .headline,.number .headline{
+	width: 27%;
+	font-size: 34rpx;
+	float: left;
+	line-height: 100rpx;
+	margin-right: 10rpx;
+	display: inline-block;
+	-moz-text-align-last: justify;
+	     text-align-last: justify;
+}
+.name input,.number input{
+	width: 67%;
+	height: 100rpx;
+	float: left;
+	padding-left: 20rpx;
+	font-size: 34rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: inline-block;
+}
+.number{
+	width: 100%;
+	height: 100rpx;
+	padding: 0 20rpx;
+	margin-top: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.btn{
+	width: 100%;
+	height: 100rpx;
+	margin-top: 80rpx;
+	padding: 0 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.btn button{
+	width: 100%;
+	height: 100%;
+	background-color: #e89439;
+	color: #fff;
+}
+

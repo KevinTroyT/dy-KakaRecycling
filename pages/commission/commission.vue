@@ -5,51 +5,33 @@
 			<view class="top2"></view>
 			<view class="card">
 				<view class="title">今日返佣</view>
-				<view class="number">0.00</view>
+				<view class="number">{{todaymoney}}</view>
 				<view class="card-bottom">
 					<view class="left">
 						<view class="name">累计返佣:</view>
-						<view class="num">0.00</view>
+						<view class="num">{{summoney}}</view>
 					</view>
 					<view class="right">
 						<view class="name">昨日返佣:</view>
-						<view class="num">0.00</view>
+						<view class="num">{{yesterdaymoney}}</view>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="record">
 			<view class="title">返佣记录</view>
-			<view class="item">
-				<view class="img">
-					<image src="../../static/images/lipinka (92).png" mode=""></image>
+			<block v-for="(item,index) in list" :key="index">
+				<view class="item">
+					<view class="img">
+						<image src="../../static/images/lipinka (92).png" mode=""></image>
+					</view>
+					<view class="middle">
+						<view class="con">推荐好友销卡</view>
+						<view class="time">{{item.createTime}}</view>
+					</view>
+					<view class="right">￥{{item.rebateMoney}}</view>
 				</view>
-				<view class="middle">
-					<view class="con">推荐好友销卡</view>
-					<view class="time">2019-04-13 20:30</view>
-				</view>
-				<view class="right">￥10</view>
-			</view>
-			<view class="item">
-				<view class="img">
-					<image src="../../static/images/lipinka (92).png" mode=""></image>
-				</view>
-				<view class="middle">
-					<view class="con">推荐好友销卡</view>
-					<view class="time">2019-04-13 20:30</view>
-				</view>
-				<view class="right">￥10</view>
-			</view>
-			<view class="item">
-				<view class="img">
-					<image src="../../static/images/lipinka (92).png" mode=""></image>
-				</view>
-				<view class="middle">
-					<view class="con">推荐好友销卡</view>
-					<view class="time">2019-04-13 20:30</view>
-				</view>
-				<view class="right">￥10</view>
-			</view>
+			</block>
 		</view>
 	</view>
 </template>
@@ -58,8 +40,34 @@
 	export default {
 		data() {
 			return {
-				
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
+				todaymoney:'',
+				summoney:'',
+				yesterdaymoney:'',
+				list:[],
 			}
+		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			console.log('token',this.token)
+			uni.request({
+				url: this.url + '/mobile/getRebateLog',
+				method:'GET',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token': this.token
+				},
+				data:{
+					
+				},
+				success: (res) => {
+					console.log(res);
+					this.todaymoney = (res.data.data.money.todaymoney).toFixed(2)
+					this.summoney = (res.data.data.money.summoney).toFixed(2)
+					this.yesterdaymoney = (res.data.data.money.yesterdaymoney).toFixed(2)
+					this.list = res.data.data.list
+				}
+			})
 		},
 		methods: {
 			
@@ -124,7 +132,7 @@
 		border-right: 1px solid #dcdcdc;
 	}
 	.card .card-bottom .name{
-		font-size: 32upx;
+		font-size: 30upx;
 		margin-right: 10upx;
 	}
 	.card .card-bottom .num{

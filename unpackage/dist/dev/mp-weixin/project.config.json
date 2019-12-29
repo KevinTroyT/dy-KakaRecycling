@@ -9,7 +9,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.9.2",
   "appid": "touristappid",
-  "projectname": "sellCard",
+  "projectname": "卡卡转让",
   "condition": {
     "search": {
       "current": -1,

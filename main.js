@@ -3,6 +3,9 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+// Vue.prototype.url = 'http://192.168.0.105:8081'
+Vue.prototype.url = 'http://49.232.168.35:8081'
+
 App.mpType = 'app'
 
 const app = new Vue({

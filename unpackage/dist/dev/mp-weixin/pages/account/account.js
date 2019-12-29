@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -144,10 +144,80 @@ var _default =
   data: function data() {
     return {
       name: '',
-      phone: '' };
+      phone: '',
+      token: '' //onShow时获取token存起来，以便每次发送请求都要重新获取
+    };
+  },
+  onShow: function onShow() {var _this = this;
+    this.token = uni.getStorageSync('token');
+    console.log('token', this.token);
+    uni.request({
+      url: this.url + '/mobile/realData',
+      method: 'GET',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'token': this.token },
+
+      data: {},
+
+
+      success: function success(res) {
+        console.log(res);
+        _this.name = res.data.realName;
+        _this.phone = res.data.alipayAccount;
+      } });
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    commit: function commit() {
+      if (this.name == '') {
+        uni.showModal({
+          title: '提示',
+          content: '用户名不能为空' });
+
+        return false;
+      } else if (this.phone == '') {
+        uni.showModal({
+          title: '提示',
+          content: '支付宝账号不能为空' });
+
+        return false;
+      } else {
+        uni.request({
+          url: this.url + '/mobile/realName',
+          method: 'GET',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded', // 默认值
+            'token': this.token },
+
+          data: {
+            name: this.name,
+            zhifu: this.phone },
+
+          success: function success(res) {
+            console.log(res);
+            if (res.data.result) {
+              uni.showToast({
+                title: res.data.msg,
+                duration: 1500,
+                success: function success() {
+                  //提交成功
+                  uni.navigateBack({
+                    delta: 1 });
+
+                } });
+
+            } else {
+              uni.showToast({
+                title: res.data.msg,
+                duration: 1500 });
+
+            }
+          } });
+
+      }
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

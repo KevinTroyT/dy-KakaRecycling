@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"uni-tab-bar .",[1],"swiper-tab-list{ width: ",[0,130],"; border-radius: ",[0,40],"; margin: 0 ",[0,10],"; }\n.",[1],"active{ color: #fff !important; background-color: #F18F02; }\n",],undefined,{path:"./pages/classification/classification.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/classification/classification.wxml') } }));

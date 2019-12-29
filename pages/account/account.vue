@@ -10,7 +10,7 @@
 			<input type="text" v-model="phone" placeholder="请输入您的支付宝账号" />
 		</view>
 		<view class="btn">
-			<button>提交账号</button>
+			<button @click="commit">提交账号</button>
 		</view>
 	</view>
 </template>
@@ -21,10 +21,78 @@
 			return {
 				name:'',
 				phone:'',
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
 			}
 		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			console.log('token',this.token)
+			uni.request({
+				url: this.url + '/mobile/realData',
+				method:'GET',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token': this.token
+				},
+				data:{
+					
+				},
+				success: (res) => {
+					console.log(res);
+					this.name = res.data.realName
+					this.phone = res.data.alipayAccount
+				}
+			})
+		},
 		methods: {
-			
+			commit(){
+				if(this.name == '') {
+					uni.showModal({
+					    title: '提示',
+					    content: '用户名不能为空',
+					});
+					return false
+				}else if(this.phone == '') {
+					uni.showModal({
+					    title: '提示',
+					    content: '支付宝账号不能为空',
+					});
+					return false
+				}else {
+					uni.request({
+						url: this.url + '/mobile/realName',
+						method:'GET',
+						header: {
+							'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+							'token': this.token
+						},
+						data:{
+							name:this.name,
+							zhifu:this.phone
+						},
+						success: (res) => {
+							console.log(res);
+							if(res.data.result){
+								uni.showToast({
+									title:res.data.msg,
+									duration:1500,
+									success:function(){
+										//提交成功
+										uni.navigateBack({
+											delta: 1
+										});
+									}
+								})
+							}else{
+								uni.showToast({
+									title:res.data.msg,
+									duration:1500,
+								})
+							}
+						}
+					})
+				}
+			}
 		}
 	}
 </script>

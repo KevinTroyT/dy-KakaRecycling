@@ -1,73 +1,24 @@
 <template>
 	<view class="information">
-		<view class="item">
-			<view class="title">
-				<view class="item-left">
-					<image src="../../static/images/information.png" mode=""></image>
-					<view class="title-con">我的消息</view>
+		<block v-for="(item,index) in noticeList" :key="index">
+			<view class="item">
+				<view class="title">
+					<view class="item-left">
+						<image src="../../static/images/information.png" mode=""></image>
+						<view class="title-con">{{item.title}}</view>
+					</view>
+					<view class="item-right">
+						<image src="../../static/images/lipinka (88).png" mode=""></image>
+					</view>
 				</view>
-				<view class="item-right">
-					<image src="../../static/images/lipinka (88).png" mode=""></image>
-				</view>
-			</view>
-			<view class="content">
-				<view class="content-con">
-					欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!
-				</view>
-				<view class="time">2019-03-03 10:00</view>
-			</view>
-		</view>
-		<view class="item">
-			<view class="title">
-				<view class="item-left">
-					<image src="../../static/images/information.png" mode=""></image>
-					<view class="title-con">我的消息</view>
-				</view>
-				<view class="item-right">
-					<image src="../../static/images/lipinka (88).png" mode=""></image>
+				<view class="content">
+					<view class="content-con">
+						{{item.content}}
+					</view>
+					<view class="time">{{item.createTime}}</view>
 				</view>
 			</view>
-			<view class="content">
-				<view class="content-con">
-					欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!
-				</view>
-				<view class="time">2019-03-03 10:00</view>
-			</view>
-		</view>
-		<view class="item">
-			<view class="title">
-				<view class="item-left">
-					<image src="../../static/images/information.png" mode=""></image>
-					<view class="title-con">我的消息</view>
-				</view>
-				<view class="item-right">
-					<image src="../../static/images/lipinka (88).png" mode=""></image>
-				</view>
-			</view>
-			<view class="content">
-				<view class="content-con">
-					欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!
-				</view>
-				<view class="time">2019-03-03 10:00</view>
-			</view>
-		</view>
-		<view class="item">
-			<view class="title">
-				<view class="item-left">
-					<image src="../../static/images/information.png" mode=""></image>
-					<view class="title-con">我的消息</view>
-				</view>
-				<view class="item-right">
-					<image src="../../static/images/lipinka (88).png" mode=""></image>
-				</view>
-			</view>
-			<view class="content">
-				<view class="content-con">
-					欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!欢迎使用卡卡回收APP!
-				</view>
-				<view class="time">2019-03-03 10:00</view>
-			</view>
-		</view>
+		</block>
 	</view>
 </template>
 
@@ -75,8 +26,35 @@
 	export default {
 		data() {
 			return {
-				
+				noticeList:[],//公告列表
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
 			}
+		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			console.log(this.token)
+			if(!this.token){
+				uni.navigateTo({
+					url: '../login/login'
+				})
+				return 
+			}
+			this.src = this.url
+			uni.request({
+				url: this.url + '/mobile/noticeListPc',
+				method:'POST',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token':this.token
+				},
+				data:{
+					
+				},
+				success: (res) => {
+					console.log(res);
+					this.noticeList = res.data.data.list
+				}
+			})
 		},
 		methods: {
 			
@@ -139,6 +117,10 @@
 		width: 100%;
 		height: 160upx;
 		padding-top: 15upx;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		overflow: hidden;
 		box-sizing: border-box;
 	}
 	.item .content .time{

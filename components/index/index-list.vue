@@ -1,12 +1,12 @@
 <template>
 	<view class="index-list">
-		<view class="listItem">
+		<view class="listItem" @click="goSellCard(item.classId,item.id)">
 			<view class="item-img">
-				<image :src="item.path" mode=""></image>
+				<image :src="src+item.imgPath" mode=""></image>
 			</view>
 			<view class="item-right">
 				<view class="name">{{item.name}}</view>
-				<view class="faceValue">{{item.faceValue}}</view>
+				<view class="faceValue">{{(item.discount*10).toFixed(1)}}折</view>
 			</view>
 			<view class="right-box">
 				<image class="right-arrows" src="../../static/images/right.png" mode=""></image>
@@ -19,7 +19,17 @@
 	export default {
 		props:{
 			item:Object,
-			index:Number
+			index:Number,
+			src:String
+		},
+		methods:{
+			goSellCard(fid,id){
+				uni.setStorageSync('card1Id',fid)
+				uni.setStorageSync('card2Id',id)
+				uni.navigateTo({
+					url: '../sellCard/sellCard'
+				});
+			}
 		}
 	}
 </script>

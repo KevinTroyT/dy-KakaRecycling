@@ -1,0 +1,86 @@
+
+page{
+	background-color: #ec5f3d;
+}
+.inviteBox .title{
+	width: 100%;
+	height: 150rpx;
+	font-size: 70rpx;
+	color: #fff;
+	line-height: 150rpx;
+	text-align: center;
+	margin-top: 50rpx;
+	font-weight: 400;
+}
+.inviteBox .title1{
+	width: 100%;
+	height: 80rpx;
+	padding: 0 25%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	line-height: 80rpx;
+}
+.inviteBox .title1>view{
+	width: 50%;
+	display: inline-block;
+	height: 100%;
+	font-size: 34rpx;
+	color: #fff;
+}
+.box{
+	position: relative;
+	width: 100%;
+	padding-top: 40rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.box image{
+	width: 640rpx;
+	height: 600rpx;
+}
+.box .con{
+	position: absolute;
+	width: 100%;
+	top: 240rpx;
+	text-align: center;
+}
+.box .con .invite{
+	color: #ec5f3d;
+	font-size: 32rpx;
+}
+.box .con .inviteCode{
+	color: #ec5f3d;
+	font-size: 56rpx;
+}
+.box .con .bottom{
+	font-size: 30rpx;
+	color: #ccc;
+	padding: 0 25%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	line-height: 34rpx;
+}
+.copy{
+	width: 100%;
+	height: 80rpx;
+	padding: 0 100rpx;
+	margin-top: 60rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.copy button{
+	width: 100%;
+	height: 100%;
+	line-height: 80rpx;
+	background-color: #f3d75c;
+	color: #b55d27;
+	font-size: 36rpx;
+	border-radius: 80rpx;
+}
+

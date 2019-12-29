@@ -1,0 +1,1 @@
+<view><view class="card"><view class="title">账户余额将提现到打款账户</view><view class="money">￥563.23</view><view class="bottom"><view class="left">账户余额:</view><view class="num">￥8563.23</view></view></view><button class="commit">提现到支付宝</button></view>

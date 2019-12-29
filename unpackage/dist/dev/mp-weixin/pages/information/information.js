@@ -8,56 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -84,11 +35,39 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      noticeList: [], //公告列表
+      token: '' //onShow时获取token存起来，以便每次发送请求都要重新获取
+    };
+  },
+  onShow: function onShow() {var _this = this;
+    this.token = uni.getStorageSync('token');
+    console.log(this.token);
+    if (!this.token) {
+      uni.navigateTo({
+        url: '../login/login' });
 
+      return;
+    }
+    this.src = this.url;
+    uni.request({
+      url: this.url + '/mobile/noticeListPc',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'token': this.token },
+
+      data: {},
+
+
+      success: function success(res) {
+        console.log(res);
+        _this.noticeList = res.data.data.list;
+      } });
 
   },
   methods: {} };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

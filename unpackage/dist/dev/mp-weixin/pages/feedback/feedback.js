@@ -122,7 +122,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
 //
 //
 //
@@ -134,11 +135,80 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      phone: '',
+      task: '',
+      token: '', //onShow时获取token存起来，以便每次发送请求都要重新获取
+      title: '' };
 
   },
-  methods: {} };exports.default = _default;
+  onShow: function onShow() {
+    this.token = uni.getStorageSync('token');
+  },
+  methods: {
+    commit: function commit() {
+      if (this.phone == '') {
+        uni.showModal({
+          title: '提示',
+          content: '联系方式不能为空' });
+
+        return false;
+      } else if (!/^1[34578]\d{9}$/.test(this.phone)) {
+        uni.showModal({
+          title: '提示',
+          content: '手机号码错误' });
+
+        return false;
+      } else if (this.title == '') {
+        uni.showModal({
+          title: '提示',
+          content: '请输入标题' });
+
+        return false;
+      } else if (this.task == '') {
+        uni.showModal({
+          title: '提示',
+          content: '请输入您的问题' });
+
+        return false;
+      } else {
+        uni.request({
+          url: this.url + '/mobile/advicefeedback',
+          method: 'GET',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded', // 默认值
+            'token': this.token },
+
+          data: {
+            title: this.title,
+            content: this.task,
+            phone: this.phone,
+            type: '1' },
+
+          success: function success(res) {
+            console.log(res);
+            if (res.data.result) {
+              uni.showToast({
+                title: '提交成功',
+                duration: 2000,
+                success: function success() {
+                  uni.switchTab({
+                    url: '../my/my' });
+
+                } });
+
+            } else {
+              uni.showToast({
+                title: res.data.msg,
+                icon: 'none',
+                duration: 2000 });
+
+            }
+          } });
+
+      }
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

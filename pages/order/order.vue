@@ -9,157 +9,43 @@
 			</block>
 		</view>
 		
-		<view class="content">
-			<view class="item">
-				<view class="item-top">
-					<view class="left">
-						<view class="name">交易编号:</view>
-						<view class="num">549564319852315</view>
+		<view class="content" v-if="orderList.length > 0">
+			<block v-for="(item,index) in orderList" :key="index">
+				<view class="item">
+					<view class="item-top">
+						<view class="left">
+							<view class="name">交易编号:</view>
+							<view class="num">{{item.id}}</view>
+						</view>
+						<view class="right">￥{{item.discount*item.feedbackValue}}</view>
 					</view>
-					<view class="right">￥98</view>
+					<view class="item-content">
+						<view class="img">
+							<image :src="src+item.imgPath" mode=""></image>
+						</view>
+						<view class="cardNum">
+							<view class="i">
+								<view class="name">名称:</view>
+								<view class="con">{{item.commodityName}}</view>
+								<view class="state">{{item.cardStr}}</view>
+							</view>
+							<view class="i">
+								<view class="name">卡号:</view>
+								<view class="con">{{item.cardNumber}}</view>
+							</view>
+							<view class="i">
+								<view class="name">卡密:</view>
+								<view class="con">{{item.cardPassword}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="item-bottom">{{item.createTime}}</view>
 				</view>
-				<view class="item-content">
-					<view class="img">
-						<image src="../../static/images/cards1.png" mode=""></image>
-					</view>
-					<view class="cardNum">
-						<view class="i">
-							<view class="name">名称:</view>
-							<view class="con">一号店礼品卡</view>
-							<view class="state">处理中</view>
-						</view>
-						<view class="i">
-							<view class="name">卡号:</view>
-							<view class="con">K9468211239</view>
-						</view>
-						<view class="i">
-							<view class="name">卡密:</view>
-							<view class="con">813595654111239</view>
-						</view>
-					</view>
-				</view>
-				<view class="item-bottom">2018-05-26 18:30:45</view>
-			</view>
-			<view class="item">
-				<view class="item-top">
-					<view class="left">
-						<view class="name">交易编号:</view>
-						<view class="num">549564319852315</view>
-					</view>
-					<view class="right">￥98</view>
-				</view>
-				<view class="item-content">
-					<view class="img">
-						<image src="../../static/images/cards1.png" mode=""></image>
-					</view>
-					<view class="cardNum">
-						<view class="i">
-							<view class="name">名称:</view>
-							<view class="con">一号店礼品卡</view>
-							<view class="state">处理中</view>
-						</view>
-						<view class="i">
-							<view class="name">卡号:</view>
-							<view class="con">K9468211239</view>
-						</view>
-						<view class="i">
-							<view class="name">卡密:</view>
-							<view class="con">813595654111239</view>
-						</view>
-					</view>
-				</view>
-				<view class="item-bottom">2018-05-26 18:30:45</view>
-			</view>
-			<view class="item">
-				<view class="item-top">
-					<view class="left">
-						<view class="name">交易编号:</view>
-						<view class="num">549564319852315</view>
-					</view>
-					<view class="right">￥98</view>
-				</view>
-				<view class="item-content">
-					<view class="img">
-						<image src="../../static/images/cards1.png" mode=""></image>
-					</view>
-					<view class="cardNum">
-						<view class="i">
-							<view class="name">名称:</view>
-							<view class="con">一号店礼品卡</view>
-							<view class="state">处理中</view>
-						</view>
-						<view class="i">
-							<view class="name">卡号:</view>
-							<view class="con">K9468211239</view>
-						</view>
-						<view class="i">
-							<view class="name">卡密:</view>
-							<view class="con">813595654111239</view>
-						</view>
-					</view>
-				</view>
-				<view class="item-bottom">2018-05-26 18:30:45</view>
-			</view>
-			<view class="item">
-				<view class="item-top">
-					<view class="left">
-						<view class="name">交易编号:</view>
-						<view class="num">549564319852315</view>
-					</view>
-					<view class="right">￥98</view>
-				</view>
-				<view class="item-content">
-					<view class="img">
-						<image src="../../static/images/cards1.png" mode=""></image>
-					</view>
-					<view class="cardNum">
-						<view class="i">
-							<view class="name">名称:</view>
-							<view class="con">一号店礼品卡</view>
-							<view class="state">处理中</view>
-						</view>
-						<view class="i">
-							<view class="name">卡号:</view>
-							<view class="con">K9468211239</view>
-						</view>
-						<view class="i">
-							<view class="name">卡密:</view>
-							<view class="con">813595654111239</view>
-						</view>
-					</view>
-				</view>
-				<view class="item-bottom">2018-05-26 18:30:45</view>
-			</view>
-			<view class="item">
-				<view class="item-top">
-					<view class="left">
-						<view class="name">交易编号:</view>
-						<view class="num">549564319852315</view>
-					</view>
-					<view class="right">￥98</view>
-				</view>
-				<view class="item-content">
-					<view class="img">
-						<image src="../../static/images/cards1.png" mode=""></image>
-					</view>
-					<view class="cardNum">
-						<view class="i">
-							<view class="name">名称:</view>
-							<view class="con">一号店礼品卡</view>
-							<view class="state">处理中</view>
-						</view>
-						<view class="i">
-							<view class="name">卡号:</view>
-							<view class="con">K9468211239</view>
-						</view>
-						<view class="i">
-							<view class="name">卡密:</view>
-							<view class="con">813595654111239</view>
-						</view>
-					</view>
-				</view>
-				<view class="item-bottom">2018-05-26 18:30:45</view>
-			</view>
+			</block>
+		</view>
+		
+		<view class="noOrder" v-else>
+			<image src="../../static/images/lipinka (96).png" mode=""></image>
 		</view>
 	</view>
 </template>
@@ -168,14 +54,63 @@
 	export default {
 		data() {
 			return {
-				item:['处理中','已成功','失败','全部'],
+				item:['全部','已成功','失败','处理中'],
 				current:0,
+				src:'',
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
+				orderList:[],
 			}
+		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			console.log(this.token)
+			if(!this.token){
+				uni.navigateTo({
+					url: '../login/login'
+				})
+				return 
+			}
+			this.src = this.url
+			uni.request({
+				url: this.url + '/mobile/getOrderCardFlowList',
+				method:'POST',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token':this.token
+				},
+				data:{
+					type:2,
+				},
+				success: (res) => {
+					console.log(res);
+					this.orderList = res.data.data
+				}
+			})
 		},
 		methods: {
 			change(index){
 				this.current = index
+				let cardState = ''
 				console.log(index)
+				if(index != 0){
+					cardState = index - 1
+				}
+				uni.request({
+					url: this.url + '/mobile/getOrderCardFlowList',
+					method:'POST',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+						'token':this.token
+					},
+					data:{
+						type:2,
+						cardState:cardState
+					},
+					success: (res) => {
+						console.log(res);
+						this.orderList = res.data.data
+					}
+				})
 			}
 		}
 	}
@@ -298,5 +233,12 @@
 		text-align: right;
 		color: #999;
 		padding-right: 10upx;
+	}
+	
+	.noOrder{
+		width: 100%;
+		display: flex;
+		margin-top: 120upx;
+		justify-content: center;
 	}
 </style>

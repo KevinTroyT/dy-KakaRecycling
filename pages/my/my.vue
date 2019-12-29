@@ -14,7 +14,7 @@
 					<view class="phone">17320140486</view>
 				</view>
 				<view class="right">
-					<view class="btn">打款账户</view>
+					<view class="btn" @click="goAccount">打款账户</view>
 				</view>
 			</view>
 			<view class="userMoney">
@@ -23,24 +23,24 @@
 					<view class="num">0.00</view>
 				</view>
 				<view class="right">
-					<view class="withdraw-deposit">提现</view>
-					<view class="record">记录</view>
+					<view class="withdraw-deposit" @click="goWithdrawDeposit">提现</view>
+					<view class="record" @click="goRecord">记录</view>
 				</view>
 			</view>
 		</view>
 		
 		<view class="content">
-			<view class="item">
+			<view class="item" @click="goCommission">
 				<image src="../../static/images/lipinka (53).png" mode=""></image>
 				<view class="name">我的分销</view>
 			</view>
-			<view class="item">
+			<view class="item" @click="goInvite">
 				<image src="../../static/images/lipinka (93).png" mode=""></image>
 				<view class="name">推广赚钱</view>
 			</view>
-			<view class="item">
-				<image src="../../static/images/lipinka (55).png" mode=""></image>
-				<view class="name">联系我们</view>
+			<view class="item" @click="goFeedback">
+				<image src="../../static/images/lipinka (53).png" mode=""></image>
+				<view class="name">意见反馈</view>
 			</view>
 			<view class="item">
 				<image src="../../static/images/lipinka (65).png" mode=""></image>
@@ -54,13 +54,13 @@
 				<image src="../../static/images/lipinka (93).png" mode=""></image>
 				<view class="name">常见问题</view>
 			</view>
-			<view class="item">
-				<image src="../../static/images/lipinka (53).png" mode=""></image>
-				<view class="name">意见反馈</view>
-			</view>
-			<view class="item">
+			<view class="item" @click="goUserInfo">
 				<image src="../../static/images/lipinka (65).png" mode=""></image>
 				<view class="name">设置</view>
+			</view>
+			<view class="item">
+				<image src="../../static/images/lipinka (55).png" mode=""></image>
+				<view class="name">联系我们</view>
 			</view>
 			<view class="item">
 				
@@ -73,11 +73,69 @@
 	export default {
 		data() {
 			return {
-				
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
 			}
 		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			console.log(this.token)
+			if(!this.token){
+				uni.navigateTo({
+					url: '../login/login'
+				})
+				return 
+			}
+			uni.request({
+				url: this.url + '/mobile/realData',
+				method:'GET',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token': this.token
+				},
+				data:{
+					
+				},
+				success: (res) => {
+					console.log(res);
+				}
+			})
+		},
 		methods: {
-			
+			goInvite(){
+				uni.navigateTo({
+					url: '../invite/invite'
+				});
+			},
+			goUserInfo(){//跳转个人信息页面
+				uni.navigateTo({
+					url: '../userInfo/userInfo'
+				});
+			},
+			goAccount(){//跳转打款账户页面
+				uni.navigateTo({
+					url: '../account/account'
+				});
+			},
+			goCommission(){//跳转佣金记录页面
+				uni.navigateTo({
+					url: '../commission/commission'
+				});
+			},
+			goFeedback(){//跳转意见反馈页面
+				uni.navigateTo({
+					url: '../feedback/feedback'
+				});
+			},
+			goRecord(){//跳转提现记录页面
+				uni.navigateTo({
+					url: '../record/record'
+				});
+			},
+			goWithdrawDeposit(){//跳转体现页面
+				uni.navigateTo({
+					url: '../withdrawDeposit/withdrawDeposit'
+				});
+			}
 		}
 	}
 </script>

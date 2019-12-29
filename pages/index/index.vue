@@ -9,9 +9,11 @@
 			    <view class="page-section swiper">
 			        <view class="page-section-spacing">
 			            <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-			                <swiper-item>
-			                    <image class="swiperImg" src="../../static/images/lipinka.jpg" mode=""></image>
-			                </swiper-item>
+							<block v-for="(item,index) in slideshowImg" :key="index">
+								<swiper-item>
+								    <image class="swiperImg" :src="src+item.path" mode=""></image>
+								</swiper-item>
+							</block>
 			            </swiper>
 			        </view>
 			    </view>
@@ -20,51 +22,30 @@
 		<view class="cards">
 			<view class="title">-专业礼品卡回收-</view>
 			<view class="cardsBox">
-				<view class="list">
-					<view class="item">
-						<image src="../../static/images/lipinka (52).png" mode=""></image>
-						<view class="name">话费卡</view>
+				<block v-for="(item,index) in listLength" :key="index">
+					<view class="list">
+						<view class="item" @click="goSellCard1(index)">
+							<image :src="src+commodityClass[index*2].logo" mode=""></image>
+							<view class="name">{{commodityClass[index*2].name}}</view>
+						</view>
+						<view class="item" @click="goSellCard2(index)">
+							<image :src="src+commodityClass[index*2+1].logo" mode=""></image>
+							<view class="name">{{commodityClass[index*2+1].name}}</view>
+						</view>
 					</view>
-					<view class="item">
-						<image src="../../static/images/lipinka (54).png" mode=""></image>
-						<view class="name">加油卡</view>
-					</view>
-				</view>
-				<view class="list">
-					<view class="item">
-						<image src="../../static/images/lipinka (52).png" mode=""></image>
-						<view class="name">话费卡</view>
-					</view>
-					<view class="item">
-						<image src="../../static/images/lipinka (54).png" mode=""></image>
-						<view class="name">加油卡</view>
-					</view>
-				</view>
-				<view class="list">
-					<view class="item">
-						<image src="../../static/images/lipinka (52).png" mode=""></image>
-						<view class="name">话费卡</view>
-					</view>
-					<view class="item">
-						<image src="../../static/images/lipinka (54).png" mode=""></image>
-						<view class="name">加油卡</view>
-					</view>
-				</view>
+				</block>
+				
 			</view>
 		</view>
 		<view class="uni-padding-wrap" style="width: 100%;height: 80upx;position: relative;">
 			<view class="page-section swiper" style="width: 100%;height: 80upx;">
 			    <view class="page-section-spacing" style="width: 100%;height: 80upx;">
 			        <swiper class="swiper" :autoplay="autoplay" :interval="interval" :duration="duration" style="width: 80%;height: 80upx;float: right;">
-			            <swiper-item style="width: 100%;height: 80upx;line-height: 80upx;">
-			                <view style="line-height: 80upx;">我是公告</view>
-			            </swiper-item>
-						<swiper-item style="width: 100%;height: 80upx;line-height: 80upx;">
-						    <view style="line-height: 80upx;">我是公告1</view>
-						</swiper-item>
-						<swiper-item style="width: 100%;height: 80upx;line-height: 80upx;">
-						    <view style="line-height: 80upx;">我是公告2</view>
-						</swiper-item>
+						<block v-for="(item,index) in notes" :key="index">
+							<swiper-item style="width: 100%;height: 80upx;line-height: 80upx;">
+							    <view style="line-height: 80upx;">{{item.title}}</view>
+							</swiper-item>
+						</block>
 			        </swiper>
 			    </view>
 			</view>
@@ -72,80 +53,20 @@
 				<image class="imgs" src="../../static/images/notice.png" mode=""></image>
 			</view>
 		</view>
-		<view class="integral">
-			<view class="title">-积分兑换-</view>
-			<view class="integralBox">
-				<view class="itemCard">
-					<image src="../../static/images/integral.png" mode=""></image>
-				</view>
-				<view class="itemCard">
-					<image src="../../static/images/integral.png" mode=""></image>
-				</view>
-				<view class="itemCard">
-					<image src="../../static/images/integral.png" mode=""></image>
-				</view>
-				<view class="itemCard">
-					<image src="../../static/images/integral.png" mode=""></image>
-				</view>
-			</view>
-		</view>
 		<view class="hot">
 			<view class="title">-热门回收-</view>
 			<view class="hotCards">
-				<view class="hotItem">
-					<view class="item-left">
-						<view class="name">中国移动</view>
-						<view class="price">96.8折回收</view>
+				<block v-for="(item,index) in hotCommodityList" :key="index">
+					<view class="hotItem" @click="goSellCard(item.classId,item.id)">
+						<view class="item-left">
+							<view class="name">{{item.name}}</view>
+							<view class="price">{{item.discount*10}}折回收</view>
+						</view>
+						<view class="item-right">
+							<image :src="src+item.imgPath" mode=""></image>
+						</view>
 					</view>
-					<view class="item-right">
-						<image src="../../static/images/hot.png" mode=""></image>
-					</view>
-				</view>
-				<view class="hotItem">
-					<view class="item-left">
-						<view class="name">中国移动</view>
-						<view class="price">96.8折回收</view>
-					</view>
-					<view class="item-right">
-						<image src="../../static/images/hot.png" mode=""></image>
-					</view>
-				</view>
-				<view class="hotItem">
-					<view class="item-left">
-						<view class="name">中国移动</view>
-						<view class="price">96.8折回收</view>
-					</view>
-					<view class="item-right">
-						<image src="../../static/images/hot.png" mode=""></image>
-					</view>
-				</view>
-				<view class="hotItem">
-					<view class="item-left">
-						<view class="name">中国移动</view>
-						<view class="price">96.8折回收</view>
-					</view>
-					<view class="item-right">
-						<image src="../../static/images/hot.png" mode=""></image>
-					</view>
-				</view>
-				<view class="hotItem">
-					<view class="item-left">
-						<view class="name">中国移动</view>
-						<view class="price">96.8折回收</view>
-					</view>
-					<view class="item-right">
-						<image src="../../static/images/hot.png" mode=""></image>
-					</view>
-				</view>
-				<view class="hotItem">
-					<view class="item-left">
-						<view class="name">中国移动</view>
-						<view class="price">96.8折回收</view>
-					</view>
-					<view class="item-right">
-						<image src="../../static/images/hot.png" mode=""></image>
-					</view>
-				</view>
+				</block>
 			</view>
 		</view>
 	</view>
@@ -162,8 +83,39 @@
 				scrollTop: 0,
 				old: {
 				    scrollTop: 0
-				}
+				},
+				src:'',
+				slideshowImg:[],//轮播图数组
+				commodityClass:[],//卡类数组
+				listLength:0,
+				notes:[],//公告数组
+				hotCommodityList:[],//热门回收数组
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
 			}
+		},
+		onShow(){
+			this.src = this.url
+			this.token = uni.getStorageSync('token')
+			uni.request({
+				url: this.url + '/mobile/indexData',
+				method:'POST',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token':this.token
+				},
+				data:{
+					type:2
+				},
+				success: (res) => {
+					console.log(res);
+					this.slideshowImg = res.data.data.slideshowImg
+					this.notes = res.data.data.notes
+					this.hotCommodityList = res.data.data.hotCommodityList
+					this.commodityClass = res.data.data.commodityClass
+					this.listLength = Math.ceil(this.commodityClass.length/2)
+					console.log(this.listLength)
+				}
+			})
 		},
 		onLoad() {
 
@@ -173,6 +125,27 @@
 			    console.log(e)
 			    this.old.scrollTop = e.detail.scrollTop
 			},
+			goSellCard(fid,id){
+				uni.setStorageSync('card1Id',fid)
+				uni.setStorageSync('card2Id',id)
+				uni.navigateTo({
+					url: '../sellCard/sellCard'
+				});
+			},
+			goSellCard1(index){
+				console.log(index)
+				uni.setStorageSync('card1Id',this.commodityClass[index*2].id)
+				uni.navigateTo({
+					url: '../sellCard/sellCard'
+				});
+			},
+			goSellCard2(index){
+				console.log(index)
+				uni.setStorageSync('card1Id',this.commodityClass[index*2+1].id)
+				uni.navigateTo({
+					url: '../sellCard/sellCard'
+				});
+			}
 		}
 	}
 </script>
@@ -227,16 +200,21 @@
 	.cards .cardsBox{
 		width: 100%;
 		height: 400upx;
+		overflow-y: hidden;
+		overflow-x: auto;
+		white-space: nowrap;
 	}
 	.cards .cardsBox .list{
 		width: 33%;
 		height: 100%;
-		float: left;
+		/* float: left; */
+		display: inline-block;
 	}
 	.cards .cardsBox .list .item{
 		width: 100%;
 		height: 200upx;
 		padding: 0 5%;
+		float: left;
 	}
 	.cards .cardsBox .list .item image{
 		width: 90%;
