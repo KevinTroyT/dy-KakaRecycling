@@ -571,6 +571,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 确认提交蒙版样式 */
 .commit-memu{
 	width: 70%;
@@ -769,6 +787,7 @@
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0,0,0,0.5);
+	z-index: 10;
 }
 page{
 	background-color: #f2f2f2;
@@ -846,13 +865,12 @@ page{
 }
 .middle>view{
 	display: inline-block;
-	width: 33.3%;
+	width: 50%;
 	height: 100%;
 	line-height: 60rpx;
 	text-align: center;
 }
-.middle .step{
-	border-left: 1px solid #ccc;
+.middle .left{
 	border-right: 1px solid #ccc;
 }
 .bottom{

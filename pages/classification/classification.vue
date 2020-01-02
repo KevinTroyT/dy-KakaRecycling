@@ -78,8 +78,26 @@
 		},
 		methods: {
 			tabClick(index){//顶部tabBar点击事件
-				this.tabIndex = index
+				// this.tabIndex = index
 				console.log(this.tabIndex)
+				uni.request({
+					url: this.url + '/mobile/cardListData',
+					method:'POST',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+						'token':this.token
+					},
+					data:{
+						type:2,
+						commodityClassId:this.tabBars[index].id
+					},
+					success: (res) => {
+						console.log(res);
+						this.newsList[index].list = res.data.data
+						console.log(this.newsList[index].list)
+						this.tabIndex = index
+					}
+				})
 			},
 			tabChange(e){//滑动切换页面
 				uni.request({
@@ -96,6 +114,7 @@
 					success: (res) => {
 						console.log(res);
 						this.newsList[e.detail.current].list = res.data.data
+						console.log(this.newsList[e.detail.current].list)
 						this.tabIndex = e.detail.current
 					}
 				})

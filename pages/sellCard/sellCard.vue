@@ -79,9 +79,8 @@
 		</view>
 		
 		<view class="middle">
-			<view class="left">获取方式</view>
-			<view class="step">交易步骤</view>
-			<view class="right">常见问题</view>
+			<view class="left">用户须知</view>
+			<view class="right" @click="goProblem_often">常见问题</view>
 		</view>
 		<view class="bottom">
 			<view class="title">用户须知</view>
@@ -211,6 +210,7 @@
 			this.token = uni.getStorageSync('token')
 			let card1Id = uni.getStorageSync('card1Id')
 			let card2Id = uni.getStorageSync('card2Id')
+			let hasCardNumber = uni.getStorageSync('hasCardNumber')
 			let _this = this
 			uni.request({
 				url: this.url + '/mobile/classificationData',
@@ -256,6 +256,7 @@
 						if(card2Id){
 							console.log(card2Id)
 							this.card2Id = card2Id
+							this.hasCardNumber = hasCardNumber
 							for(let j = 0 ; j < _this.card2List.length ; j++){
 								if(_this.card2List[j].id == card2Id){
 									_this.card2Id = _this.card2List[j].id
@@ -269,6 +270,7 @@
 			}
 			if(card2Id){
 				uni.removeStorageSync('card2Id')
+				uni.removeStorageSync('hasCardNumber')
 				uni.request({//获取面值列表
 					url: _this.url + '/mobile/getFaceVlaueData',
 					method:'POST',
@@ -308,6 +310,11 @@
 			})
 		},
 		methods: {
+			goProblem_often(){//跳转常见问题页面
+				uni.navigateTo({
+					url: '../problem_often/problem_often'
+				})
+			},
 			commitCard(){//蒙版点击确认提交
 				if(this.current == '0'){//单卡提交
 					// 发送请求
@@ -335,6 +342,11 @@
 								uni.showToast({
 									title: '提交成功',
 									duration: 2000,
+									success:function(){
+										uni.switchTab({
+											url: '../order/order'
+										})
+									}
 								});
 							}else{
 								uni.showToast({
@@ -377,6 +389,11 @@
 								uni.showToast({
 									title: '提交成功',
 									duration: 2000,
+									success:function(){
+										uni.switchTab({
+											url: '../order/order'
+										})
+									}
 								});
 							}else{
 								uni.showToast({
@@ -489,6 +506,7 @@
 				this.card3FaceValue = ''
 				this.card3Discount = ''
 				this.discountPrice = ''
+				this.card3List = []
 				let _this = this
 				this.card1Id = id
 				this.card1Name = name
@@ -559,7 +577,7 @@
 			pitchCard3(id,faceValue,discount,discountPrice){
 				this.card3Id = id
 				this.card3FaceValue = faceValue
-				this.card3Discount = (discount*10).toFixed(1)+'折'
+				this.card3Discount = (discount*1).toFixed(1)+'折'
 				this.discountPrice = discountPrice
 				this.card3Show = false
 			},
@@ -764,6 +782,7 @@
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0,0,0,0.5);
+		z-index: 10;
 	}
 	
 	page{
@@ -834,13 +853,12 @@
 	}
 	.middle>view{
 		display: inline-block;
-		width: 33.3%;
+		width: 50%;
 		height: 100%;
 		line-height: 60upx;
 		text-align: center;
 	}
-	.middle .step{
-		border-left: 1px solid #ccc;
+	.middle .left{
 		border-right: 1px solid #ccc;
 	}
 	

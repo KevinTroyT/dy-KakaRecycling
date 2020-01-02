@@ -1,0 +1,132 @@
+
+.user{
+	width: 100%;
+	height: 200rpx;
+	text-align: center;
+}
+.user image{
+	width: 200rpx;
+	height: 200rpx;
+}
+/* 单选框样式 */
+.content{
+	width: 100%;
+	height: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin-top: 200rpx;
+}
+.content view{
+	display: inline-block;
+}
+.content label{
+	display: inline-block;
+}
+.content radio{
+	display: inline-block;
+}
+page{
+	background-color: #f9fcfd;
+}
+/* 输入框部分样式 */
+.top{
+	width: 100%;
+	padding: 0 5%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin-top: 40rpx;
+}
+.top .phone{
+	width: 100%;
+	height: 100rpx;
+	border: 1px solid #ccc;
+	border-radius: 100rpx;
+	margin-bottom: 40rpx;
+	padding-left: 50rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.top .phone .i{
+	float: left;
+	display: inline-block;
+	width: 35rpx;
+	height: 100rpx;
+	padding-top: 25rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.top .phone .i image{
+	width: 100%;
+	height: 50rpx;
+}
+.top .phone .input{
+	display: inline-block;
+	width: 80%;
+	height: 90rpx;
+	padding-left: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.top .password{
+	width: 100%;
+	height: 100rpx;
+	border: 1px solid #ccc;
+	margin-bottom: 40rpx;
+	border-radius: 100rpx;
+	padding-left: 50rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.top .password .i{
+	float: left;
+	display: inline-block;
+	width: 35rpx;
+	height: 100rpx;
+	padding-top: 25rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.top .password .i image{
+	width: 100%;
+	height: 50rpx;
+}
+.top .password .input{
+	display: inline-block;
+	width: 80%;
+	height: 90rpx;
+	padding-left: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+/* 底部按钮样式 */
+.bottom{
+	width: 100%;
+	margin-top: 180rpx;
+}
+.bottom button{
+	width: 80%;
+	height: 100rpx;
+	line-height: 100rpx;
+	border: none;
+	background-color: #1d81cf;
+	color: #fff;
+	border-radius: 20rpx;
+}
+.bottom .nav{
+	width: 35%;
+	text-align: center;
+	margin-left: 250rpx;
+	margin-top: 80rpx;
+	font-size: 28rpx;
+	color: #1d81cf;
+}
+.bottom .nav ._a{
+	width: 100%;
+}
+

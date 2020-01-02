@@ -8,10 +8,10 @@
 				</view>
 				<view class="middle">
 					<view class="name">
-						<view class="username">.</view>
+						<view class="username">{{name}}</view>
 						<image src="../../static/images/lipinka (50).png" mode=""></image>
 					</view>
-					<view class="phone">17320140486</view>
+					<view class="phone">{{phone}}</view>
 				</view>
 				<view class="right">
 					<view class="btn" @click="goAccount">打款账户</view>
@@ -20,7 +20,7 @@
 			<view class="userMoney">
 				<view class="left">
 					<view class="name">账户余额</view>
-					<view class="num">0.00</view>
+					<view class="num">{{Number(rebateMoney).toFixed(1)}}</view>
 				</view>
 				<view class="right">
 					<view class="withdraw-deposit" @click="goWithdrawDeposit">提现</view>
@@ -31,35 +31,35 @@
 		
 		<view class="content">
 			<view class="item" @click="goCommission">
-				<image src="../../static/images/lipinka (53).png" mode=""></image>
+				<image src="../../static/images/a1.png" mode=""></image>
 				<view class="name">我的分销</view>
 			</view>
 			<view class="item" @click="goInvite">
-				<image src="../../static/images/lipinka (93).png" mode=""></image>
+				<image src="../../static/images/a2.png" mode=""></image>
 				<view class="name">推广赚钱</view>
 			</view>
 			<view class="item" @click="goFeedback">
-				<image src="../../static/images/lipinka (53).png" mode=""></image>
+				<image src="../../static/images/a3.png" mode=""></image>
 				<view class="name">意见反馈</view>
 			</view>
-			<view class="item">
-				<image src="../../static/images/lipinka (65).png" mode=""></image>
+			<view class="item" @click="goCompany_recovery">
+				<image src="../../static/images/a4.png" mode=""></image>
 				<view class="name">企业回收</view>
 			</view>
-			<view class="item">
-				<image src="../../static/images/lipinka (55).png" mode=""></image>
+			<view class="item" @click="goFind_shoper">
+				<image src="../../static/images/a5.png" mode=""></image>
 				<view class="name">招商合作</view>
 			</view>
-			<view class="item">
-				<image src="../../static/images/lipinka (93).png" mode=""></image>
+			<view class="item" @click="goProblem_often">
+				<image src="../../static/images/a6.png" mode=""></image>
 				<view class="name">常见问题</view>
 			</view>
 			<view class="item" @click="goUserInfo">
-				<image src="../../static/images/lipinka (65).png" mode=""></image>
+				<image src="../../static/images/a7.png" mode=""></image>
 				<view class="name">设置</view>
 			</view>
-			<view class="item">
-				<image src="../../static/images/lipinka (55).png" mode=""></image>
+			<view class="item" @click="goCallUs">
+				<image src="../../static/images/a8.png" mode=""></image>
 				<view class="name">联系我们</view>
 			</view>
 			<view class="item">
@@ -74,6 +74,9 @@
 		data() {
 			return {
 				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
+				rebateMoney:'',
+				name:'',
+				phone:'',
 			}
 		},
 		onShow(){
@@ -97,10 +100,33 @@
 				},
 				success: (res) => {
 					console.log(res);
+					this.rebateMoney = res.data.rebateMoney+''
+					this.name = res.data.name+''
+					this.phone = res.data.tel+''
 				}
 			})
 		},
 		methods: {
+			goCallUs(){
+				uni.navigateTo({
+					url: '../callUs/callUs'
+				})
+			},
+			goCompany_recovery(){//跳转企业回收页面
+				uni.navigateTo({
+					url: '../company_recovery/company_recovery'
+				})
+			},
+			goFind_shoper(){//跳转招商合作页面
+				uni.navigateTo({
+					url: '../find_shoper/find_shoper'
+				})
+			},
+			goProblem_often(){//跳转常见问题页面
+				uni.navigateTo({
+					url: '../problem_often/problem_often'
+				})
+			},
 			goInvite(){
 				uni.navigateTo({
 					url: '../invite/invite'

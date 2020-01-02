@@ -69,4 +69,17 @@ page{
 	font-size: 26rpx;
 	color: #909090;
 }
+.noInformation{
+	width: 100%;
+	margin-top: 320rpx;
+	text-align: center;
+}
+.noInformation image{
+	width: 400rpx;
+	height: 320rpx;
+}
+.noInformation view{
+	font-size: 42rpx;
+	color: #ccc;
+}
 

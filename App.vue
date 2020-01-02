@@ -2,6 +2,15 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			let token = uni.getStorageSync('token')
+			console.log(token)
+			if(token){
+				return false
+			}else{
+				uni.navigateTo({
+					url: './pages/login/login'
+				})
+			}
 		},
 		onShow: function() {
 			console.log('App Show')

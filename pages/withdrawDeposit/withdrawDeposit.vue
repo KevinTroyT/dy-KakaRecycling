@@ -2,13 +2,13 @@
 	<view>
 		<view class="card">
 			<view class="title">账户余额将提现到打款账户</view>
-			<view class="money">￥563.23</view>
+			<view class="money"><view style="display: inline-block;">￥</view><input type="number" v-model="money"></view>
 			<view class="bottom">
 				<view class="left">账户余额:</view>
-				<view class="num">￥8563.23</view>
+				<view class="num">￥{{Number(rebateMoney).toFixed(1)}}</view>
 			</view>
 		</view>
-		<button class="commit">提现到支付宝</button>
+		<button class="commit" @click="commit">提现到支付宝</button>
 	</view>
 </template>
 
@@ -16,11 +16,99 @@
 	export default {
 		data() {
 			return {
-				
+				money:'',
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
+				rebateMoney:'',
 			}
 		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			uni.request({
+				url: this.url + '/mobile/realData',
+				method:'GET',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token': this.token
+				},
+				data:{
+					
+				},
+				success: (res) => {
+					console.log(res);
+					this.rebateMoney = res.data.rebateMoney+''
+				}
+			})
+		},
 		methods: {
-			
+			commit(){
+				let _this = this
+				if(this.money == ''){
+					uni.showModal({
+						title: '提现',
+						content:'请输入提现金额'
+					})
+					return false
+				}else if(this.money <= 0){
+					uni.showModal({
+						title: '提现',
+						content:'提现金额需大于0'
+					})
+					return false
+				}
+				let reg = /^[0-9]{1,9}\.{0,1}\d{0,1}$/
+				if(!reg.test(this.money)){
+					uni.showModal({
+						title: '提现',
+						content:'提现金额最多保留一位小数'
+					})
+					return false
+				}else{
+					uni.request({
+						url: this.url + '/mobile/withdrawDeposit',
+						method:'GET',
+						header: {
+							'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+							'token': this.token
+						},
+						data:{
+							amount:this.money
+						},
+						success: (res) => {
+							console.log(res);
+							if(res.data.result){
+								uni.showToast({
+									title: '提现成功',
+									duration: 2000,
+									success:function(){
+										_this.money = ''
+										uni.request({
+											url: _this.url + '/mobile/realData',
+											method:'GET',
+											header: {
+												'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+												'token': _this.token
+											},
+											data:{
+												
+											},
+											success: (res) => {
+												console.log(res);
+												_this.rebateMoney = res.data.rebateMoney+''
+											}
+										})
+									}
+								});
+							}else{
+								uni.showToast({
+									title: res.data.msg,
+									duration: 2000,
+									icon:'none'
+								});
+							}
+						}
+					})
+				}
+			}
 		}
 	}
 </script>
@@ -45,10 +133,23 @@
 		color: #7d838c;
 	}
 	.card .money{
+		padding-top: 20upx;
+		box-sizing: border-box;
+	}
+	.card .money>view{
 		font-size: 75upx;
-		margin-top: 20upx;
+		height: 120upx;
+		line-height: 120upx;
+		float: left;
 		border-bottom: 1px solid #f2f2f2;
 		color: #000;
+	}
+	.card .money input{
+		height: 120upx;
+		width: 50%;
+		line-height: 120upx;
+		font-size: 75upx;
+		display: inline-block;
 	}
 	.card .bottom{
 		width: 100%;

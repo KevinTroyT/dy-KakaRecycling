@@ -1,0 +1,47 @@
+
+page{
+	background-color: #f2f2f2;
+}
+.logo{
+	width: 100%;
+	text-align: center;
+}
+.logo image{
+	width: 150rpx;
+	height: 150rpx;
+	border-radius: 20rpx;
+	margin-top: 80rpx;
+}
+.logo .logo-name{
+	font-size: 30rpx;
+	line-height: 60rpx;
+}
+.box{
+	width: 100%;
+}
+.box .item{
+	width: 100%;
+	height: 100rpx;
+	line-height: 100rpx;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-bottom: 1px solid #f2f2f2;
+}
+.box .item>view{
+	display: inline-block;
+	text-align: left;
+	line-height: 100rpx;
+	float: left;
+}
+.box .item .name{
+	width: 25%;
+}
+.box .item image{
+	width: 40rpx;
+	height: 40rpx;
+	float: right;
+	margin-top: 30rpx;
+	margin-right: 30rpx;
+}
+

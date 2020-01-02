@@ -1,29 +1,26 @@
 <template>
 	<view>
-		<!--注册 -->
-		<view class="aaa">
-			<view class="img">
-				<image src="../../static/images/user.png" mode=""></image>
-			</view>
-		    <view class='zhuce' >
-		        <view class='zhuce_ouput'>
-		            <view>手机号：</view><input id="phone" type="number" v-model="phone"  placeholder='请输入手机号码' />
-		        </view>	
-		        <view class='zhuce_ouput'>
-		            <view>密码：</view><input id="password" v-model="password" type="password" placeholder='请输入密码' />
-		        </view>
-		        <view class='zhuce_ouput'>
-		            <view>验证码：</view><input id="veri" type="number" v-model="code" placeholder='请输入验证码' /><view style="display: inline-block;" id="getyzm" @click="sendCode">{{num}}</view>
-		        </view>
-				<view class='zhuce_ouput'>
-				    <view>邀请码：</view><input id="invite" v-model="invite" type="invite" placeholder='请填写邀请码(选填)' />
-				</view>
-				<view class='xieyishu'>
-					<view class="login" style="color: #000;">已有账户?<view style="color: #1d81cf;display: inline-block;" @click="goLogin">立即登陆</view></view>
-				</view>	
-		        <button class="registerBtn" @click="register">立即注册</button>
-		    <view>
+		<view class="img">
+			<image src="../../static/images/user.png" mode=""></image>
 		</view>
+		   <view class='zhuce' >
+		       <view class='zhuce_ouput'>
+		           <view>手机号：</view><input id="phone" type="number" v-model="phone"  placeholder='请输入手机号码' />
+		       </view>	
+		       <view class='zhuce_ouput'>
+		           <view>密码：</view><input id="password" v-model="password" type="password" placeholder='请输入密码' />
+		       </view>
+		       <view class='zhuce_ouput'>
+		           <view>验证码：</view><input id="veri" type="number" v-model="code" placeholder='请输入验证码' /><view style="display: inline-block;" id="getyzm" @click="sendCode">{{num}}</view>
+		       </view>
+			<view class='zhuce_ouput'>
+			    <view>邀请码：</view><input id="invite" v-model="invite" type="invite" placeholder='请填写邀请码(选填)' />
+			</view>
+			<view class='xieyishu'>
+				<view class="login" style="color: #000;">已有账户?<view style="color: #1d81cf;display: inline-block;" @click="goLogin">立即登陆</view></view>
+			</view>	
+		       <button class="registerBtn" @click="register">立即注册</button>
+		   </view>
 	</view>
 </template>
 
@@ -50,18 +47,10 @@
 				})
 			},
 			register(){
-				var passwordReg=/^[\d\w]{6,12}$/;//密码格式6位到16位数字字母
 				var phoneReg = /^[1]([3-9])[0-9]{9}$/;//电话
 				if(!phoneReg.test(this.phone)){
 					uni.showModal({
 						content: '手机格式不正确',
-						showCancel: false
-					});
-				    return false;
-				}
-				if(!passwordReg.test(this.password)){
-					uni.showModal({
-						content: '密码格式不正确',
 						showCancel: false
 					});
 				    return false;
@@ -175,14 +164,12 @@
 </script>
 
 <style>
-	.aaa{
-		/* margin-top: 15%; */
-	}
-	.aaa .img{
+	.img{
 		width: 100%;
+		height: 200upx;
 		text-align: center;
 	}
-	.aaa .img image{
+	.img image{
 		width: 200upx;
 		height: 200upx;
 	}

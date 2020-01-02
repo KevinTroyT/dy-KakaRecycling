@@ -1,12 +1,6 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-		    "path" : "pages/login/login",
-		    "style": {
-		    	"navigationBarTitleText": "登录账号"
-		    }
-		},
-		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "沃回收"
@@ -25,10 +19,46 @@
 			}
 		},
 		{
+			"path": "pages/callUs/callUs",
+			"style": {
+				"navigationBarTitleText": "联系我们"
+			}
+		},
+		{
+			"path": "pages/updatePsd/updatePsd",
+			"style": {
+				"navigationBarTitleText": "修改密码"
+			}
+		},
+		{
+			"path": "pages/company_recovery/company_recovery",
+			"style": {
+				"navigationBarTitleText": "企业回收"
+			}
+		},
+		{
+			"path": "pages/find_shoper/find_shoper",
+			"style": {
+				"navigationBarTitleText": "招商合作"
+			}
+		},
+		{
+			"path": "pages/problem_often/problem_often",
+			"style": {
+				"navigationBarTitleText": "常见问题"
+			}
+		},
+		{
 			"path": "pages/sellCard/sellCard",
 			"style": {
 				"navigationBarTitleText": "卡券转让"
 			}
+		},
+		{
+		    "path" : "pages/login/login",
+		    "style": {
+		    	"navigationBarTitleText": "登录账号"
+		    }
 		},
 		{
 		    "path" : "pages/register/register",

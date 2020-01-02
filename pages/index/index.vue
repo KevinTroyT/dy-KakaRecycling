@@ -2,7 +2,6 @@
 	<view class="index">
 		<view class="top-title">
 			<view class="content">沃回收</view>
-			<image src="../../static/images/search.png" mode=""></image>
 		</view>
 		<view class="carousel">
 			<view class="uni-padding-wrap">
@@ -37,7 +36,7 @@
 				
 			</view>
 		</view>
-		<view class="uni-padding-wrap" style="width: 100%;height: 80upx;position: relative;">
+		<view class="uni-padding-wrap" style="width: 100%;height: 80upx;position: relative;box-sizing: border-box;">
 			<view class="page-section swiper" style="width: 100%;height: 80upx;">
 			    <view class="page-section-spacing" style="width: 100%;height: 80upx;">
 			        <swiper class="swiper" :autoplay="autoplay" :interval="interval" :duration="duration" style="width: 80%;height: 80upx;float: right;">
@@ -57,7 +56,7 @@
 			<view class="title">-热门回收-</view>
 			<view class="hotCards">
 				<block v-for="(item,index) in hotCommodityList" :key="index">
-					<view class="hotItem" @click="goSellCard(item.classId,item.id)">
+					<view class="hotItem" @click="goSellCard(item.classId,item.id,item.hasCardNumber)">
 						<view class="item-left">
 							<view class="name">{{item.name}}</view>
 							<view class="price">{{item.discount*10}}折回收</view>
@@ -125,9 +124,10 @@
 			    console.log(e)
 			    this.old.scrollTop = e.detail.scrollTop
 			},
-			goSellCard(fid,id){
+			goSellCard(fid,id,hasCardNumber){
 				uni.setStorageSync('card1Id',fid)
 				uni.setStorageSync('card2Id',id)
+				uni.setStorageSync('hasCardNumber',hasCardNumber)
 				uni.navigateTo({
 					url: '../sellCard/sellCard'
 				});
@@ -291,8 +291,8 @@
 	}
 	.hot .hotCards .hotItem{
 		width: 50%;
-		height: 100upx;
 		padding: 0 4%;
+		float: left;
 		margin-bottom: 30upx;
 		box-sizing: border-box;
 		display: inline-block;
@@ -310,7 +310,7 @@
 	.hot .hotCards .hotItem .item-right{
 		float: right;
 		width: 45%;
-		height: 100%;
+		height: 100upx;
 	}
 	.hot .hotCards .hotItem .item-right image{
 		width: 100%;

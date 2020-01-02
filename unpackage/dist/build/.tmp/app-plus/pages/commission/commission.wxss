@@ -112,4 +112,17 @@ page{
 	font-size: 34rpx;
 	color: #d5352f;
 }
+.noOrder{
+	width: 100%;
+	margin-top: 320rpx;
+	text-align: center;
+}
+.noOrder image{
+	width: 400rpx;
+	height: 120rpx;
+}
+.noOrder view{
+	font-size: 42rpx;
+	color: #ccc;
+}
 

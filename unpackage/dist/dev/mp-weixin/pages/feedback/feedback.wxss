@@ -11,6 +11,11 @@
 	margin-top: 30rpx;
 	line-height: 100rpx;
 	font-size: 34rpx;
+	padding-left: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 20rpx;
 }
 .title{
 	font-size: 30rpx;
@@ -20,6 +25,11 @@
 	width: 100%;
 	margin-top: 40rpx;
 	font-size: 30rpx;
+	border: 1px solid #ccc;
+	border-radius: 20rpx;
+	padding: 10rpx 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .commit{
 	width: 100%;

@@ -21,10 +21,24 @@ page{
 	color: #7d838c;
 }
 .card .money{
+	padding-top: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.card .money>view{
 	font-size: 75rpx;
-	margin-top: 20rpx;
+	height: 120rpx;
+	line-height: 120rpx;
+	float: left;
 	border-bottom: 1px solid #f2f2f2;
 	color: #000;
+}
+.card .money input{
+	height: 120rpx;
+	width: 50%;
+	line-height: 120rpx;
+	font-size: 75rpx;
+	display: inline-block;
 }
 .card .bottom{
 	width: 100%;

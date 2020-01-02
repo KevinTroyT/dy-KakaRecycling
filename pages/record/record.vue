@@ -13,34 +13,24 @@
 			</view>
 		</view>
 		<view class="content">
-			<view class="item">
-				<view class="money">
-					<view class="name">申请提现</view>
-					<view class="num">+600.00</view>
+			<block v-for="(item,index) in list" :key="index">
+				<view class="item">
+					<view class="money">
+						<view class="name">申请提现</view>
+						<view class="num">+{{item.money}}</view>
+					</view>
+					<view class="time">
+						<view class="name">申请时间</view>
+						<view class="num">{{item.createTime}}</view>
+					</view>
+					<view class="state">
+						<view class="name">申请状态</view>
+						<view class="num" v-if="item.state == 0">提现中</view>
+						<view class="num" v-if="item.state == 1">提现成功</view>
+						<view class="num" v-if="item.state == 2">提现失败</view>
+					</view>
 				</view>
-				<view class="time">
-					<view class="name">申请时间</view>
-					<view class="num">2019-02-23 15:18:20</view>
-				</view>
-				<view class="state">
-					<view class="name">申请状态</view>
-					<view class="num">提现中</view>
-				</view>
-			</view>
-			<view class="item">
-				<view class="money">
-					<view class="name">申请提现</view>
-					<view class="num">+600.00</view>
-				</view>
-				<view class="time">
-					<view class="name">申请时间</view>
-					<view class="num">2019-02-23 15:18:20</view>
-				</view>
-				<view class="state">
-					<view class="name">申请状态</view>
-					<view class="num">提现中</view>
-				</view>
-			</view>
+			</block>
 		</view>
 	</view>
 </template>
@@ -49,13 +39,48 @@
 	export default {
 		data() {
 			return {
-				item:['体现中','已提现'],
+				item:['提现中','已提现'],
 				current:0,
+				token:'',//onShow时获取token存起来，以便每次发送请求都要重新获取
+				list:[],
 			}
+		},
+		onShow(){
+			this.token = uni.getStorageSync('token')
+			uni.request({
+				url: this.url + '/mobile/withdrawLogList',
+				method:'GET',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+					'token': this.token
+				},
+				data:{
+					state:this.current
+				},
+				success: (res) => {
+					console.log(res);
+					this.list = res.data.data
+				}
+			})
 		},
 		methods: {
 			change(index){
 				this.current = index
+				uni.request({
+					url: this.url + '/mobile/withdrawLogList',
+					method:'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded' ,// 默认值
+						'token': this.token
+					},
+					data:{
+						state:index
+					},
+					success: (res) => {
+						console.log(res);
+						this.list = res.data.data
+					}
+				})
 			}
 		}
 	}

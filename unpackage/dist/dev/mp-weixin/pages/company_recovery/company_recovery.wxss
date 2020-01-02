@@ -1,0 +1,96 @@
+
+page{
+	background-color: #f2f2f2;
+}
+.top{
+	position: relative;
+	width: 100%;
+	height: 400rpx;
+}
+.top .backgroundImg{
+	width: 100%;
+	height: 100%;
+}
+.top-wenzi{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+}
+.top-wenzi image{
+	width: 80%;
+	height: 110rpx;
+	margin-top: 50rpx;
+	margin-bottom: 30rpx;
+}
+.top-wenzi .con1{
+	color: #fff;
+	font-size: 32rpx;
+}
+.top-wenzi .wenzi-btn{
+	display: inline-block;
+	border: 1px solid #fff;
+	color: #fff;
+	margin-top: 20rpx;
+	padding: 10rpx 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-radius: 60rpx;
+	font-size: 34rpx;
+}
+.middle{
+	width: 100%;
+	padding: 0 30rpx;
+	margin-top: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.middle .content{
+	width: 100%;
+	text-align: center;
+	font-size: 34rpx;
+	font-weight: 600;
+}
+.bottom{
+	width: 100%;
+	padding: 0 10rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.bottom .item{
+	width: 50%;
+	height: 330rpx;
+	padding: 10rpx;
+	float: left;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.bottom .item .item-box{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 15rpx 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background-color: #fff;
+}
+.bottom .item .item-box image{
+	width: 100rpx;
+	height: 100rpx;
+}
+.bottom .item .item-box .name{
+	font-size: 30rpx;
+	line-height: 40rpx;
+}
+.bottom .item .item-box .line{
+	display: inline-block;
+	width: 20%;
+	height: 6rpx;
+	background-color: #35BBB4;
+}
+.bottom .item .item-box .item-con{
+	font-size: 22rpx;
+}
+

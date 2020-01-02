@@ -1,14 +1,11 @@
 <template>
-	<view class="information">
+	<view class="information" v-if="noticeList.length > 0">
 		<block v-for="(item,index) in noticeList" :key="index">
 			<view class="item">
 				<view class="title">
 					<view class="item-left">
 						<image src="../../static/images/information.png" mode=""></image>
 						<view class="title-con">{{item.title}}</view>
-					</view>
-					<view class="item-right">
-						<image src="../../static/images/lipinka (88).png" mode=""></image>
 					</view>
 				</view>
 				<view class="content">
@@ -19,6 +16,11 @@
 				</view>
 			</view>
 		</block>
+	</view>
+	
+	<view class="noInformation" v-else>
+		<image src="../../static/images/lipinka (96).png" mode=""></image>
+		<view>暂无消息</view>
 	</view>
 </template>
 
@@ -129,5 +131,18 @@
 		text-align: right;
 		font-size: 26upx;
 		color: #909090;
+	}
+	.noInformation{
+		width: 100%;
+		margin-top: 320upx;
+		text-align: center;
+	}
+	.noInformation image{
+		width: 400upx;
+		height: 320upx;
+	}
+	.noInformation view{
+		font-size: 42upx;
+		color: #ccc;
 	}
 </style>

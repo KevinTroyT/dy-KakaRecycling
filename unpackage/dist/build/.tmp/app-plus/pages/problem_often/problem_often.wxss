@@ -1,0 +1,62 @@
+
+page{
+	background-color: #f2f2f2;
+	padding: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.content{
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background-color: #fff;
+}
+.item{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+}
+.item .view-title{
+	width: 100%;
+	height: 100rpx;
+}
+.item .view-title>view{
+	display: inline-block;
+	line-height: 100rpx;
+}
+.item .view-title .num{
+	float: left;
+	margin-right: 20rpx;
+}
+.item .view-title .name{
+	float: left;
+	font-size: 26rpx;
+}
+.item .view-title image{
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 30rpx;
+	margin-right: 30rpx;
+	float: right;
+}
+.item .view-title .select{
+	-webkit-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+.item .item-box{
+	width: 100%;
+	padding: 10rpx 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.item .item-box .box{
+	width: 100%;
+	background-color: #ccc;
+	padding: 10rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-size: 26rpx;
+	margin-bottom: 20rpx;
+}
+

@@ -5,33 +5,40 @@
 			<view class="top2"></view>
 			<view class="card">
 				<view class="title">今日返佣</view>
-				<view class="number">{{todaymoney}}</view>
+				<view class="number">{{todaymoney ? Number(todaymoney).toFixed(1) : 0.0}}</view>
 				<view class="card-bottom">
 					<view class="left">
 						<view class="name">累计返佣:</view>
-						<view class="num">{{summoney}}</view>
+						<view class="num">{{summoney ? Number(summoney).toFixed(1) : 0.0}}</view>
 					</view>
 					<view class="right">
 						<view class="name">昨日返佣:</view>
-						<view class="num">{{yesterdaymoney}}</view>
+						<view class="num">{{yesterdaymoney ? Number(yesterdaymoney).toFixed(1) : 0.0}}</view>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="record">
 			<view class="title">返佣记录</view>
-			<block v-for="(item,index) in list" :key="index">
-				<view class="item">
-					<view class="img">
-						<image src="../../static/images/lipinka (92).png" mode=""></image>
+			<view class="record-list" v-if="list.length > 0">
+				<block v-for="(item,index) in list" :key="index">
+					<view class="item">
+						<view class="img">
+							<image src="../../static/images/lipinka (92).png" mode=""></image>
+						</view>
+						<view class="middle">
+							<view class="con">推荐好友销卡</view>
+							<view class="time">{{item.createTime}}</view>
+						</view>
+						<view class="right">￥{{item.rebateMoney}}</view>
 					</view>
-					<view class="middle">
-						<view class="con">推荐好友销卡</view>
-						<view class="time">{{item.createTime}}</view>
-					</view>
-					<view class="right">￥{{item.rebateMoney}}</view>
-				</view>
-			</block>
+				</block>
+			</view>
+			
+			<view class="noOrder" v-else>
+				<image src="../../static/images/lipinka (96).png" mode=""></image>
+				<view>暂无返佣记录</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -62,9 +69,9 @@
 				},
 				success: (res) => {
 					console.log(res);
-					this.todaymoney = (res.data.data.money.todaymoney).toFixed(2)
-					this.summoney = (res.data.data.money.summoney).toFixed(2)
-					this.yesterdaymoney = (res.data.data.money.yesterdaymoney).toFixed(2)
+					this.todaymoney = res.data.data.money.todaymoney+''
+					this.summoney = res.data.data.money.summoney+''
+					this.yesterdaymoney = res.data.data.money.yesterdaymoney+''
 					this.list = res.data.data.list
 				}
 			})
@@ -184,5 +191,18 @@
 		line-height: 100upx;
 		font-size: 34upx;
 		color: #d5352f;
+	}
+	.noOrder{
+		width: 100%;
+		margin-top: 320upx;
+		text-align: center;
+	}
+	.noOrder image{
+		width: 400upx;
+		height: 120upx;
+	}
+	.noOrder view{
+		font-size: 42upx;
+		color: #ccc;
 	}
 </style>

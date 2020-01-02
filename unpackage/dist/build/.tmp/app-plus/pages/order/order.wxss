@@ -94,6 +94,7 @@ page{
 	width: 80%;
 }
 .item .item-content .cardNum .i{
+	height: 50rpx;
 	line-height: 55rpx;
 }
 .item .item-content .cardNum .i:nth-child(1){
@@ -106,6 +107,16 @@ page{
 .item .item-content .cardNum .i .con{
 	display: inline-block;
 	color: #999;
+}
+.item .item-content .cardNum .card .name{
+	float: left;
+}
+.item .item-content .cardNum .card .con{
+	float: left;
+	width: 85%;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
 }
 .item .item-content .cardNum .i .state{
 	display: inline-block;
@@ -120,14 +131,15 @@ page{
 }
 .noOrder{
 	width: 100%;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	margin-top: 120rpx;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	margin-top: 320rpx;
+	text-align: center;
+}
+.noOrder image{
+	width: 400rpx;
+	height: 320rpx;
+}
+.noOrder view{
+	font-size: 42rpx;
+	color: #ccc;
 }
 

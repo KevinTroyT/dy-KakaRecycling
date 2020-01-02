@@ -175,7 +175,7 @@
 		height: 100upx;
 		border: 1px solid #ccc;
 		border-radius: 100upx;
-		padding-left: 30upx;
+		padding-left: 50upx;
 		box-sizing: border-box;
 	}
 	.top .password .i{

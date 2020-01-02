@@ -9,9 +9,8 @@
 		<view class="username">
 			<view class="title">用户名</view>
 			<view class="name">Mis Emma</view>
-			<image src="../../static/images/right_1.png" class="right-icon" mode=""></image>
 		</view>
-		<view class="username">
+		<view class="username" @click="goUpdatePsd">
 			<view class="title">修改密码</view>
 			<image src="../../static/images/right_1.png" class="right-icon" mode=""></image>
 		</view>
@@ -34,6 +33,11 @@
 				uni.clearStorageSync()
 				uni.navigateTo({
 					url: '../login/login'
+				});
+			},
+			goUpdatePsd(){
+				uni.navigateTo({
+					url: '../updatePsd/updatePsd'
 				});
 			}
 		}

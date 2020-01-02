@@ -300,8 +300,8 @@
 }
 .hot .hotCards .hotItem{
 	width: 50%;
-	height: 100rpx;
 	padding: 0 4%;
+	float: left;
 	margin-bottom: 30rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -320,7 +320,7 @@
 .hot .hotCards .hotItem .item-right{
 	float: right;
 	width: 45%;
-	height: 100%;
+	height: 100rpx;
 }
 .hot .hotCards .hotItem .item-right image{
 	width: 100%;

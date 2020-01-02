@@ -204,7 +204,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var _default =
 {
   data: function data() {
@@ -258,9 +257,10 @@ var _default =
       console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
     },
-    goSellCard: function goSellCard(fid, id) {
+    goSellCard: function goSellCard(fid, id, hasCardNumber) {
       uni.setStorageSync('card1Id', fid);
       uni.setStorageSync('card2Id', id);
+      uni.setStorageSync('hasCardNumber', hasCardNumber);
       uni.navigateTo({
         url: '../sellCard/sellCard' });
 

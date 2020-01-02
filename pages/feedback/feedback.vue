@@ -100,6 +100,10 @@
 		margin-top: 30upx;
 		line-height: 100upx;
 		font-size: 34upx;
+		padding-left: 20upx;
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		border-radius: 20upx;
 	}
 	.title{
 		font-size: 30upx;
@@ -109,6 +113,10 @@
 		width: 100%;
 		margin-top: 40upx;
 		font-size: 30upx;
+		border: 1px solid #ccc;
+		border-radius: 20upx;
+		padding: 10upx 20upx;
+		box-sizing: border-box;
 	}
 	.commit{
 		width: 100%;

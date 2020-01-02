@@ -13,7 +13,7 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));function 
 
 _vue.default.config.productionTip = false;
 
-// Vue.prototype.url = 'http://192.168.0.105:8081'
+// Vue.prototype.url = 'http://192.168.0.111:8081'
 _vue.default.prototype.url = 'http://49.232.168.35:8081';
 
 _App.default.mpType = 'app';
@@ -94,10 +94,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
+    var token = uni.getStorageSync('token');
+    console.log(token);
+    if (token) {
+      return false;
+    } else {
+      uni.navigateTo({
+        url: './pages/login/login' });
+
+    }
   },
   onShow: function onShow() {
     console.log('App Show');
@@ -105,6 +114,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   onHide: function onHide() {
     console.log('App Hide');
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 12 */

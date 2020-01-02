@@ -29,11 +29,11 @@
 								<view class="con">{{item.commodityName}}</view>
 								<view class="state">{{item.cardStr}}</view>
 							</view>
-							<view class="i">
+							<view class="i card">
 								<view class="name">卡号:</view>
 								<view class="con">{{item.cardNumber}}</view>
 							</view>
-							<view class="i">
+							<view class="i card">
 								<view class="name">卡密:</view>
 								<view class="con">{{item.cardPassword}}</view>
 							</view>
@@ -46,6 +46,7 @@
 		
 		<view class="noOrder" v-else>
 			<image src="../../static/images/lipinka (96).png" mode=""></image>
+			<view>暂无订单</view>
 		</view>
 	</view>
 </template>
@@ -210,6 +211,7 @@
 		width: 80%;
 	}
 	.item .item-content .cardNum .i{
+		height: 50upx;
 		line-height: 55upx;
 	}
 	.item .item-content .cardNum .i:nth-child(1){
@@ -222,6 +224,15 @@
 	.item .item-content .cardNum .i .con{
 		display: inline-block;
 		color: #999;
+	}
+	.item .item-content .cardNum .card .name{
+		float: left;
+	}
+	.item .item-content .cardNum .card .con{
+		float: left;
+		width: 85%;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	.item .item-content .cardNum .i .state{
 		display: inline-block;
@@ -237,8 +248,15 @@
 	
 	.noOrder{
 		width: 100%;
-		display: flex;
-		margin-top: 120upx;
-		justify-content: center;
+		margin-top: 320upx;
+		text-align: center;
+	}
+	.noOrder image{
+		width: 400upx;
+		height: 320upx;
+	}
+	.noOrder view{
+		font-size: 42upx;
+		color: #ccc;
 	}
 </style>

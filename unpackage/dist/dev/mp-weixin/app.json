@@ -1,10 +1,15 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
     "pages/invite/invite",
     "pages/classification/classification",
+    "pages/callUs/callUs",
+    "pages/updatePsd/updatePsd",
+    "pages/company_recovery/company_recovery",
+    "pages/find_shoper/find_shoper",
+    "pages/problem_often/problem_often",
     "pages/sellCard/sellCard",
+    "pages/login/login",
     "pages/register/register",
     "pages/order/order",
     "pages/my/my",
