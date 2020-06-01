@@ -28,7 +28,7 @@
 				method:'GET',
 				header: {
 					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-					'token': this.token
+					'Authorization': this.token
 				},
 				data:{
 					
@@ -68,7 +68,7 @@
 						method:'GET',
 						header: {
 							'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-							'token': this.token
+							'Authorization': this.token
 						},
 						data:{
 							amount:this.money

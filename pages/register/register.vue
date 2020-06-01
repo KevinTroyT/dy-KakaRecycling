@@ -17,7 +17,7 @@
 			    <view>邀请码：</view><input id="invite" v-model="invite" type="invite" placeholder='请填写邀请码(选填)' />
 			</view>
 			<view class='xieyishu'>
-				<view class="login" style="color: #000;">已有账户?<view style="color: #1d81cf;display: inline-block;" @click="goLogin">立即登陆</view></view>
+				<view class="login" style="color: #000;">已有账户?<view style="color: #3db6ae;display: inline-block;" @click="goLogin">立即登陆</view></view>
 			</view>	
 		       <button class="registerBtn" @click="register">立即注册</button>
 		   </view>
@@ -33,6 +33,7 @@
 				code:'',
 				num:'获取验证码',
 				invite:'',
+				veri: false,
 			}
 		},
 		methods: {
@@ -54,6 +55,13 @@
 						showCancel: false
 					});
 				    return false;
+				}
+				if(!this.veri){
+					uni.showModal({
+						content: '请先获取验证码',
+						showCancel: false
+					});
+					return false;
 				}
 				uni.request({
 					url: this.url + '/mobile/register',
@@ -132,6 +140,7 @@
 								title: '发送成功',
 								duration: 2000,
 							});
+							this.veri = true;
 							let num = 60
 							let a = setInterval(function () {//设置定时器60s
 							    num-=1
@@ -208,11 +217,11 @@
 		height: 50upx;
 		line-height: 50upx;
 		text-align: center;
-		color: #1d81cf;
+		color: #3db6ae;
 		border-radius: 10upx;
 	}
 	.registerBtn{
-		background-color: #1d81cf;
+		background-color: #3db6ae;
 		color: white;
 		width: 90%;
 		font-size: 36upx;

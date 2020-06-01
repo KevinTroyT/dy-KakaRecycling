@@ -10,7 +10,7 @@
 			            <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 							<block v-for="(item,index) in slideshowImg" :key="index">
 								<swiper-item>
-								    <image class="swiperImg" :src="src+item.path" mode=""></image>
+								    <image class="swiperImg" :src="item.path" mode=""></image>
 								</swiper-item>
 							</block>
 			            </swiper>
@@ -24,11 +24,11 @@
 				<block v-for="(item,index) in listLength" :key="index">
 					<view class="list">
 						<view class="item" @click="goSellCard1(index)">
-							<image :src="src+commodityClass[index*2].logo" mode=""></image>
+							<image :src="commodityClass[index*2].logo" mode=""></image>
 							<view class="name">{{commodityClass[index*2].name}}</view>
 						</view>
 						<view class="item" @click="goSellCard2(index)">
-							<image :src="src+commodityClass[index*2+1].logo" mode=""></image>
+							<image :src="commodityClass[index*2+1].logo" mode=""></image>
 							<view class="name">{{commodityClass[index*2+1].name}}</view>
 						</view>
 					</view>
@@ -39,7 +39,7 @@
 		<view class="uni-padding-wrap" style="width: 100%;height: 80upx;position: relative;box-sizing: border-box;">
 			<view class="page-section swiper" style="width: 100%;height: 80upx;">
 			    <view class="page-section-spacing" style="width: 100%;height: 80upx;">
-			        <swiper class="swiper" :autoplay="autoplay" :interval="interval" :duration="duration" style="width: 80%;height: 80upx;float: right;">
+			        <swiper class="swiper" :autoplay="autoplay" :interval="interval" :duration="duration" style="width: 90%;height: 80upx;float: right;color:#777">
 						<block v-for="(item,index) in notes" :key="index">
 							<swiper-item style="width: 100%;height: 80upx;line-height: 80upx;">
 							    <view style="line-height: 80upx;">{{item.title}}</view>
@@ -49,20 +49,21 @@
 			    </view>
 			</view>
 			<view class="_position display_row">
-				<image class="imgs" src="../../static/images/notice.png" mode=""></image>
+				<image class="imgs notice" src="../../static/images/notice.png" mode=""></image>
 			</view>
 		</view>
+		<view class="blank"></view>
 		<view class="hot">
 			<view class="title">-热门回收-</view>
 			<view class="hotCards">
 				<block v-for="(item,index) in hotCommodityList" :key="index">
 					<view class="hotItem" @click="goSellCard(item.classId,item.id,item.hasCardNumber)">
-						<view class="item-left">
+						<view class="item-top">
+							<image :src="item.imgPath" mode=""></image>
 							<view class="name">{{item.name}}</view>
-							<view class="price">{{item.discount*10}}折回收</view>
 						</view>
-						<view class="item-right">
-							<image :src="src+item.imgPath" mode=""></image>
+						<view class="item-bottom">
+							<view class="price">{{item.discount*10}}折回收</view>
 						</view>
 					</view>
 				</block>
@@ -100,7 +101,6 @@
 				method:'POST',
 				header: {
 					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-					'token':this.token
 				},
 				data:{
 					type:2
@@ -177,7 +177,6 @@
 	}
 	/* 轮播图 */
 	.carousel{
-		margin-top: 100upx;
 		width: 100%;
 		height: 300upx;
 	}
@@ -203,6 +202,7 @@
 		overflow-y: hidden;
 		overflow-x: auto;
 		white-space: nowrap;
+		border-bottom: #eee 1upx solid;
 	}
 	.cards .cardsBox .list{
 		width: 33%;
@@ -229,7 +229,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 160upx;
+		width: 100upx;
 		height: 80upx;
 	}
 	.imgs {
@@ -290,30 +290,63 @@
 		width: 100%;
 	}
 	.hot .hotCards .hotItem{
-		width: 50%;
+		position: relative;
+		width: 40%;
 		padding: 0 4%;
 		float: left;
 		margin-bottom: 30upx;
+		height: 200upx;
 		box-sizing: border-box;
 		display: inline-block;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 4px;
+		box-shadow: 0 2upx 3px 0 rgba(0, 0, 0, 0.2), 0 4upx 10upx 0 rgba(0, 0, 0, 0.19);
+		margin-left:50upx;
+		background: linear-gradient(to right, rgb(245, 126, 132), rgb(249, 70, 92));
 	}
-	.hot .hotCards .hotItem .item-left{
-		float: left;
-		width: 50%;
-		height: 100%;
-		text-align: right;
+	.hot .hotCards .hotItem:nth-child(4n+1)
+	,.hot .hotCards .hotItem:nth-child(4n+2){
+		background: linear-gradient(to right, rgb(83, 158, 251), rgb(39, 112, 217));
 	}
-	.hot .hotCards .hotItem .item-left .price{
+	.hot .hotCards .hotItem .item-top{
+		text-align: center;
+		padding-top: 30upx;
+		color:#fff
+	}
+	.hot .hotCards .hotItem .item-bottom{
+		position: absolute;
+		width: 100%;
+		height: 30%;
+		bottom: 0;
+		left: 0;
+		background-color: #fff;
+		border-top: 1px #eee solid;
+		text-align: center;
+	}
+	.hot .hotCards .hotItem .item-bottom .price{
 		font-size: 30upx;
 		color: #909090;
 	}
 	.hot .hotCards .hotItem .item-right{
-		float: right;
 		width: 45%;
 		height: 100upx;
 	}
-	.hot .hotCards .hotItem .item-right image{
+	.hot .hotCards .hotItem .item-top image{
+		width: 50upx;
+		height: 50upx;
+		float: left;
+		margin-left: 25upx;
+		margin-right: -25upx;
+	}
+	.notice{
 		width: 100%;
-		height: 100%;
+		height: 45%;
+		margin-left: 10px;
+	}
+	.blank{
+		width: 100%;
+		height: 10px;
+		background-color: #eee;
 	}
 </style>

@@ -52,7 +52,7 @@
 				method:'GET',
 				header: {
 					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-					'token': this.token
+					'Authorization': this.token
 				},
 				data:{
 					state:this.current
@@ -71,7 +71,7 @@
 					method:'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-						'token': this.token
+						'Authorization': this.token
 					},
 					data:{
 						state:index

@@ -48,7 +48,7 @@
 				method:'GET',
 				header: {
 					'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-					'token': this.token
+					'Authorization': this.token
 				},
 				data:{
 					
@@ -73,7 +73,7 @@
 					method:'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded' ,// 默认值
-						'token': this.token
+						'Authorization': this.token
 					},
 					data:{
 						id:this.id,
@@ -212,7 +212,7 @@
 		height: 100upx;
 		line-height: 100upx;
 		border: none;
-		background-color: #1d81cf;
+		background-color: #3db6ae;
 		color: #fff;
 		border-radius: 20upx;
 	}
@@ -222,7 +222,7 @@
 		margin-left: 250upx;
 		margin-top: 80upx;
 		font-size: 28upx;
-		color: #1d81cf;
+		color: #3db6ae;
 	}
 	.bottom .nav a{
 		width: 100%;

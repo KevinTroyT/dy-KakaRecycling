@@ -73,6 +73,7 @@
 					success: (res) => {
 						console.log(res)
 						if(res.data.result){
+							
 							uni.showToast({
 								title: '登录成功',
 								duration: 2000,
@@ -207,7 +208,7 @@
 		height: 100upx;
 		line-height: 100upx;
 		border: none;
-		background-color: #1d81cf;
+		background-color: #3db6ae;
 		color: #fff;
 		border-radius: 20upx;
 	}
@@ -217,7 +218,7 @@
 		margin-left: 250upx;
 		margin-top: 80upx;
 		font-size: 28upx;
-		color: #1d81cf;
+		color: #3db6ae;
 	}
 	.bottom .nav a{
 		width: 100%;

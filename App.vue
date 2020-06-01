@@ -7,9 +7,9 @@
 			if(token){
 				return false
 			}else{
-				uni.navigateTo({
-					url: './pages/login/login'
-				})
+				// uni.navigateTo({
+				// 	url: './pages/login/login'
+				// })
 			}
 		},
 		onShow: function() {
